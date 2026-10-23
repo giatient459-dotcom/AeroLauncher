@@ -120,6 +120,10 @@ void load_vulkan() {
 
 int pojavInitOpenGL() {
     const char *renderer = getenv("POJAV_RENDERER");
+    if (renderer == NULL || renderer[0] == '\0') {
+        fprintf(stderr, "POJAV_RENDERER is unset or empty; refusing to initialize renderer.\n");
+        return -1;
+    }
 
     if (!strncmp("opengles", renderer, 8))
     {
