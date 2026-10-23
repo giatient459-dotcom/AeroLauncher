@@ -37,3 +37,12 @@
 - Memory monitor start/stop/restart does not create duplicate worker threads.
 - Parallel-work tests prove bounded queueing and deterministic rejection/cancellation.
 - P2P integration is not considered complete until two real Android clients connect directly, force TURN relay, exchange versioned messages, and recover from disconnects.
+
+## Java runtime compatibility correction
+
+- Keep the Android launcher build JDK separate from the Java runtime used by Minecraft; the existing JDK 21 CI build does not need to become JDK 25 simply because Minecraft 26.1 needs Java 25.
+- Correct the Java requirement boundary for Minecraft 1.17: it requires Java 16+, so this launcher's supported Java 17 tier is the compatible choice (Java 8 is not).
+- Validate profile-pinned and default runtimes before launch. If no runtime with a known Java major meets the game's requirement, stop with the existing user-facing error instead of launching with an older JVM.
+- Treat downloaded runtime metadata as a post-install invariant and do not select an older fallback for a future Java major the launcher does not yet support.
+- Add unit tests for 1.16.5 / 1.17 / 1.20.4 / 1.20.5 / 1.21.11 / 26.1 boundaries and Java-major compatibility.
+- Java 25 support on Android still needs device validation: verify signed runtime downloads for each packaged ABI, boot vanilla 26.1+, and separately test Fabric/Forge/Quilt plus renderer paths. Minecraft/JDK compatibility does not guarantee every mod-loader and ASM dependency is Java 25 compatible.

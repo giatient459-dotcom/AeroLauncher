@@ -230,7 +230,7 @@ class LaunchArgs(
 
             // 1.x branch
             if (isMinecraftVersionAtLeast(mcVersionId, 1, 20, 5)) return 21
-            if (isMinecraftVersionAtLeast(mcVersionId, 1, 18, 0)) return 17
+            if (isMinecraftVersionAtLeast(mcVersionId, 1, 17, 0)) return 17
             if (isMinecraftVersionAtLeast(mcVersionId, 1, 0, 0)) return 8
 
             // Unrecognised/non-numeric version id (e.g. custom modpack labels)

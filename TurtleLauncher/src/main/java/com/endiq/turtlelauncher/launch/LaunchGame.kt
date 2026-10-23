@@ -212,7 +212,7 @@ class LaunchGame {
             val jsonJavaVersion = version.javaVersion?.majorVersion ?: 8
             val mcId = version.id ?: ""
             val requiredJava = LaunchArgs.resolveRequiredJava(mcId, jsonJavaVersion)
-            val javaRuntime = getRuntime(activity, minecraftVersion, requiredJava)
+            val javaRuntime = getRuntime(activity, minecraftVersion, requiredJava) ?: return
 
             val actualJavaVersion = runCatching { MultiRTUtils.read(javaRuntime).javaVersion }
                 .getOrDefault(requiredJava)
@@ -248,18 +248,32 @@ class LaunchGame {
             GameService.setActive(false)
         }
 
-        private fun getRuntime(activity: Activity, version: Version, targetJavaVersion: Int): String {
+        private fun getRuntime(activity: Activity, version: Version, targetJavaVersion: Int): String? {
             val versionRuntime = version.getJavaDir()
                 .takeIf { it.isNotEmpty() && it.startsWith(Tools.LAUNCHERPROFILES_RTPREFIX) }
                 ?.removePrefix(Tools.LAUNCHERPROFILES_RTPREFIX)
                 ?: ""
 
-            if (versionRuntime.isNotEmpty()) return versionRuntime
+            if (versionRuntime.isNotEmpty()) {
+                val selectedRuntime = MultiRTUtils.read(versionRuntime)
+                if (JavaRuntimePolicy.isCompatible(selectedRuntime.javaVersion, targetJavaVersion)) {
+                    Logging.i(
+                        "LaunchGame",
+                        "Using profile runtime '$versionRuntime' (Java ${selectedRuntime.javaVersion})"
+                    )
+                    return versionRuntime
+                }
+                Logging.w(
+                    "LaunchGame",
+                    "Ignoring profile runtime '$versionRuntime' (Java ${selectedRuntime.javaVersion}); " +
+                        "Minecraft requires Java $targetJavaVersion or newer"
+                )
+            }
 
             var autoInstalled = TurtleJREAutoInstaller.ensureJavaInstalled(activity, targetJavaVersion)
             if (autoInstalled != null) {
                 val rt = MultiRTUtils.read(autoInstalled)
-                if (rt.javaVersion >= targetJavaVersion) {
+                if (JavaRuntimePolicy.isCompatible(rt.javaVersion, targetJavaVersion)) {
                     Logging.i("LaunchGame", "Auto-installed Java runtime: $autoInstalled")
                     return autoInstalled
                 }
@@ -267,7 +281,7 @@ class LaunchGame {
                 autoInstalled = TurtleJREAutoInstaller.ensureJavaInstalled(activity, targetJavaVersion)
                 if (autoInstalled != null) {
                     val retryRt = MultiRTUtils.read(autoInstalled)
-                    if (retryRt.javaVersion >= targetJavaVersion) {
+                    if (JavaRuntimePolicy.isCompatible(retryRt.javaVersion, targetJavaVersion)) {
                         Logging.i("LaunchGame", "Auto-installed Java runtime on retry: $autoInstalled")
                         return autoInstalled
                     }
@@ -276,23 +290,37 @@ class LaunchGame {
                 Logging.e("LaunchGame", "TurtleJREAutoInstaller could not provide Java $targetJavaVersion (network unreachable, or download/verification failed) - falling back to whatever runtime is already installed")
             }
 
-            // If the version has no Java runtime set, pick a suitable one automatically.
-            var runtime = AllSettings.defaultRuntime.getValue()
+            // Prefer the configured default only when it can run this Minecraft version.
+            val runtime = AllSettings.defaultRuntime.getValue()
             val pickedRuntime = MultiRTUtils.read(runtime)
-            if (pickedRuntime.javaVersion == 0 || pickedRuntime.javaVersion < targetJavaVersion) {
-                runtime = MultiRTUtils.getNearestJreName(targetJavaVersion) ?: run {
-                    Logging.e("LaunchGame", "No installed runtime satisfies Java $targetJavaVersion (installed: '$runtime' is Java ${pickedRuntime.javaVersion}) and auto-install failed - launch will very likely crash with UnsupportedClassVersionError")
-                    activity.runOnUiThread {
-                        Toast.makeText(
-                            activity,
-                            activity.getString(R.string.game_autopick_runtime_failed) + " (" + activity.getString(R.string.game_requires_java_version, targetJavaVersion) + ")",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                    return runtime
-                }
+            if (JavaRuntimePolicy.isCompatible(pickedRuntime.javaVersion, targetJavaVersion)) {
+                return runtime
             }
-            return runtime
+
+            val compatibleRuntime = MultiRTUtils.getNearestJreName(targetJavaVersion)
+                ?.takeIf { candidate ->
+                    JavaRuntimePolicy.isCompatible(
+                        MultiRTUtils.read(candidate).javaVersion,
+                        targetJavaVersion
+                    )
+                }
+            if (compatibleRuntime != null) {
+                Logging.i("LaunchGame", "Using installed compatible runtime '$compatibleRuntime' for Java $targetJavaVersion")
+                return compatibleRuntime
+            }
+
+            val message = activity.getString(R.string.game_autopick_runtime_failed) +
+                " (" + activity.getString(R.string.game_requires_java_version, targetJavaVersion) + ")"
+            Logging.e(
+                "LaunchGame",
+                "Cannot launch Minecraft ${version.getVersionName()}: no installed runtime reports Java $targetJavaVersion or newer"
+            )
+            activity.runOnUiThread {
+                Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+            }
+            // Returning null is intentional: launching with an older JRE only delays the
+            // failure until the game crashes with UnsupportedClassVersionError.
+            return null
         }
 
         private fun printLauncherInfo(

@@ -25,7 +25,7 @@ import java.io.FileInputStream
  *   Java    MC versions
  *   ────    ──────────────────────────
  *   JRE 8   MC 1.16.5 and below
- *   JRE 17  MC 1.18 – 1.20.4
+ *   JRE 17  MC 1.17 – 1.20.4
  *   JRE 21  MC 1.20.5 – 1.21.11
  *   JRE 25  MC 26.1 and later
  *
@@ -63,7 +63,7 @@ object TurtleJREAutoInstaller {
      */
     private val INTERNAL_JRES = listOf(
         InternalJre(8,  "Internal-8",  "components/jre-legacy", "Java 8  (MC 1.16.5 and below)"),
-        InternalJre(17, "Internal-17", "components/jre-new",    "Java 17 (MC 1.18 – 1.20.4)"),
+        InternalJre(17, "Internal-17", "components/jre-new",    "Java 17 (MC 1.17 – 1.20.4)"),
         InternalJre(21, "Internal-21", "components/jre-21",     "Java 21 (MC 1.20.5 – 1.21.11)"),
         InternalJre(25, "Internal-25", "components/jre-25",     "Java 25 (MC 26.1 and later)")
     )
@@ -91,7 +91,9 @@ object TurtleJREAutoInstaller {
             "MC requires Java $requiredJava → ${target.description} (${target.name})")
 
         // Fast path: already installed and update interval not exceeded
-        val alreadyInstalled = MultiRTUtils.readInternalRuntimeVersion(target.name) != null
+        val installedRuntime = MultiRTUtils.read(target.name)
+        val alreadyInstalled = MultiRTUtils.readInternalRuntimeVersion(target.name) != null &&
+            JavaRuntimePolicy.isCompatible(installedRuntime.javaVersion, requiredJava)
         if (alreadyInstalled && !isUpdateDue(target.name)) {
             Logging.i("TurtleJREAutoInstaller", "${target.name} up-to-date, skipping download")
             return target.name
@@ -99,15 +101,25 @@ object TurtleJREAutoInstaller {
 
         return try {
             downloadAndInstall(target)
+            val installedJava = MultiRTUtils.forceReread(target.name).javaVersion
+            check(JavaRuntimePolicy.isCompatible(installedJava, requiredJava)) {
+                "Downloaded ${target.name} reports Java $installedJava; Java $requiredJava or newer is required"
+            }
             MultiRTUtils.writeLastUpdateTime(target.name, System.currentTimeMillis() / 1000L)
-            Logging.i("TurtleJREAutoInstaller", "${target.name} installed OK")
+            Logging.i("TurtleJREAutoInstaller", "${target.name} installed OK (Java $installedJava)")
             target.name
         } catch (e: Exception) {
             Logging.e("TurtleJREAutoInstaller", "Failed to install ${target.name}: ${e.message}", e)
-            // Fall back to the nearest already-installed runtime
+            // Only return a fallback if its parsed Java major actually meets the requirement.
             val fallback = MultiRTUtils.getNearestJreName(requiredJava)
-            Logging.i("TurtleJREAutoInstaller", "Falling back to: $fallback")
-            fallback
+            val fallbackJava = fallback?.let { MultiRTUtils.read(it).javaVersion } ?: 0
+            if (fallback != null && JavaRuntimePolicy.isCompatible(fallbackJava, requiredJava)) {
+                Logging.i("TurtleJREAutoInstaller", "Falling back to compatible runtime: $fallback (Java $fallbackJava)")
+                fallback
+            } else {
+                Logging.e("TurtleJREAutoInstaller", "No installed Java runtime satisfies Java $requiredJava")
+                null
+            }
         }
     }
 
@@ -117,6 +129,10 @@ object TurtleJREAutoInstaller {
     fun downloadJava(context: Context, major: Int): String {
         val target = requireNotNull(INTERNAL_JRES.firstOrNull { it.major == major })
         downloadAndInstall(target)
+        val installedJava = MultiRTUtils.forceReread(target.name).javaVersion
+        check(JavaRuntimePolicy.isCompatible(installedJava, major)) {
+            "Downloaded ${target.name} reports Java $installedJava; Java $major or newer is required"
+        }
         MultiRTUtils.writeLastUpdateTime(target.name, System.currentTimeMillis() / 1000L)
         return target.name
     }
@@ -130,11 +146,12 @@ object TurtleJREAutoInstaller {
      * match any known tier (shouldn't normally happen).
      */
     private fun pickBestJre(required: Int): InternalJre? {
+        // Never choose a runtime below the requested major. A newer Minecraft version
+        // must wait for an explicit runtime mapping rather than launch with an older JRE.
         return INTERNAL_JRES.firstOrNull { it.major == required }
             ?: INTERNAL_JRES
                 .filter { it.major >= required }
                 .minByOrNull { it.major }
-            ?: INTERNAL_JRES.maxByOrNull { it.major }
     }
 
     /**
