@@ -92,6 +92,9 @@ static void abort_waiter_setup() {
 
     for (size_t i = 0; i < ntracked; i++)
     {
+        memset(&sigactions[i], 0, sizeof(sigactions[i]));
+        sigemptyset(&sigactions[i].sa_mask);
+        sigactions[i].sa_flags = 0;
         sigaddset(&abort_waiter_data.tracked_sigset, tracked_signals[i]);
         sigactions[i].sa_handler = abort_waiter_handler;
     }
