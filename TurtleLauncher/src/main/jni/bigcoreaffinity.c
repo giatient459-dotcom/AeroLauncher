@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <sched.h>
 #include <string.h>
+#include <ctype.h>
 
 #define FREQ_MAX 256
 void bigcore_format_cpu_path(char* buffer, unsigned int cpu_core) {
@@ -37,6 +38,9 @@ void bigcore_set_affinity() {
             }
             freq_buffer[read_count] = '\0';
             core_freq = strtoul(freq_buffer, &discard, 10);
+            while (*discard != '\0' && isspace((unsigned char) *discard)) {
+                discard++;
+            }
             if (discard == freq_buffer || *discard != '\0') {
                 corecnt++;
                 continue;
