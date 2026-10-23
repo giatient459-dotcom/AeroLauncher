@@ -39,13 +39,21 @@ jobjectArray convert_from_char_array(JNIEnv *env, char **charArray, int num_rows
 }
 
 void free_char_array(JNIEnv *env, jobjectArray jstringArray, const char **charArray) {
-	int num_rows = (*env)->GetArrayLength(env, jstringArray);
-	jstring row;
-	
-	for (int i = 0; i < num_rows; i++) {
-		row = (jstring) (*env)->GetObjectArrayElement(env, jstringArray, i);
-		(*env)->ReleaseStringUTFChars(env, row, charArray[i]);
+	if (charArray == NULL) {
+		return;
 	}
+
+	int num_rows = (*env)->GetArrayLength(env, jstringArray);
+	for (int i = 0; i < num_rows; i++) {
+		jstring row = (jstring) (*env)->GetObjectArrayElement(env, jstringArray, i);
+		if (row != NULL && charArray[i] != NULL) {
+			(*env)->ReleaseStringUTFChars(env, row, charArray[i]);
+		}
+		if (row != NULL) {
+			(*env)->DeleteLocalRef(env, row);
+		}
+	}
+	free((void *) charArray);
 }
 
 jstring convertStringJVM(JNIEnv* srcEnv, JNIEnv* dstEnv, jstring srcStr) {
@@ -84,20 +92,31 @@ JNIEXPORT void JNICALL Java_com_movtery_turtlelauncher_bridge_TurtleBridge_setLd
 	android_update_LD_LIBRARY_PATH_t android_update_LD_LIBRARY_PATH;
 	
 	void *libdl_handle = dlopen("libdl.so", RTLD_LAZY);
+	if (libdl_handle == NULL) {
+		LOG_TO_E("Unable to open libdl.so: %s", dlerror());
+		return;
+	}
 	void *updateLdLibPath = dlsym(libdl_handle, "android_update_LD_LIBRARY_PATH");
 	if (updateLdLibPath == NULL) {
 		updateLdLibPath = dlsym(libdl_handle, "__loader_android_update_LD_LIBRARY_PATH");
 		if (updateLdLibPath == NULL) {
 			char *dl_error_c = dlerror();
 			LOG_TO_E("Error getting symbol android_update_LD_LIBRARY_PATH: %s", dl_error_c);
-			// (*env)->ThrowNew(env, exception_cls, dl_error_c);
+			// The symbol is unavailable on this Android version; do not call NULL.
+			dlclose(libdl_handle);
+			return;
 		}
 	}
-	
+
 	android_update_LD_LIBRARY_PATH = (android_update_LD_LIBRARY_PATH_t) updateLdLibPath;
 	const char* ldLibPathUtf = (*env)->GetStringUTFChars(env, ldLibraryPath, 0);
-	android_update_LD_LIBRARY_PATH(ldLibPathUtf);
+	if (ldLibPathUtf == NULL) {
+		dlclose(libdl_handle);
+		return; // JNI has already raised an exception.
+	}
+	android_update_LD_LIBRARY_PATH((char *) ldLibPathUtf);
 	(*env)->ReleaseStringUTFChars(env, ldLibraryPath, ldLibPathUtf);
+	dlclose(libdl_handle);
 }
 
 JNIEXPORT jboolean JNICALL Java_com_movtery_turtlelauncher_bridge_TurtleBridge_dlopen(JNIEnv *env, jclass clazz, jstring name) {
