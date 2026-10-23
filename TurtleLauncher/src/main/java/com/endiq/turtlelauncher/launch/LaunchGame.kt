@@ -209,9 +209,17 @@ class LaunchGame {
 
             // Resolve actual required Java version — Mojang's JSON still reports 21
             // for MC 26.x even though 26.1.2+ requires Java 25. Override here.
-            val jsonJavaVersion = version.javaVersion?.majorVersion ?: 8
+            val jsonJavaVersion = version.javaVersion?.majorVersion ?: 0
             val mcId = version.id ?: ""
             val requiredJava = LaunchArgs.resolveRequiredJava(mcId, jsonJavaVersion)
+            if (requiredJava <= 0) {
+                val message = activity.getString(R.string.game_java_requirement_unknown, mcId)
+                Logging.e("LaunchGame", message)
+                activity.runOnUiThread {
+                    Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+                }
+                return
+            }
             val javaRuntime = getRuntime(activity, minecraftVersion, requiredJava) ?: return
 
             val actualJavaVersion = runCatching { MultiRTUtils.read(javaRuntime).javaVersion }

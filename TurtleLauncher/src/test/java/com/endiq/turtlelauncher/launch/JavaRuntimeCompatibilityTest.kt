@@ -19,6 +19,9 @@ class JavaRuntimeCompatibilityTest {
         assertEquals(25, LaunchArgs.resolveRequiredJava("26.1-snapshot-1", 21))
         // Early 26.0 snapshots defer to the version metadata until an explicit rule exists.
         assertEquals(21, LaunchArgs.resolveRequiredJava("26.0-snapshot-5", 21))
+        // For future year-based branches, trust metadata; do not silently assume Java 25.
+        assertEquals(25, LaunchArgs.resolveRequiredJava("27.0", 25))
+        assertEquals(0, LaunchArgs.resolveRequiredJava("27.0", 0))
     }
 
     @Test

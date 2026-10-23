@@ -220,12 +220,17 @@ class LaunchArgs(
          */
         @JvmStatic
         fun resolveRequiredJava(mcVersionId: String, jsonMajorVersion: Int): Int {
-            if (leadingVersionSegmentInt(mcVersionId, 0) >= 26) {
-                // 26.x branch (new versioning scheme, no "1." prefix) — 26.1+ needs Java 25
+            val versionMajor = leadingVersionSegmentInt(mcVersionId, 0)
+            if (versionMajor == 26) {
+                // 26.x branch (new versioning scheme, no "1." prefix) — 26.1+ needs Java 25.
                 if (isMinecraftVersionAtLeast(mcVersionId, 26, 1, 0)) return 25
-                // Very early 26.0.x betas that predate the 26.1 cutoff — no
-                // explicit rule for these yet, defer to Mojang's JSON value.
+                // Very early 26.0.x betas predate that cutoff; use version metadata when present.
                 return if (jsonMajorVersion > 0) jsonMajorVersion else 25
+            }
+            if (versionMajor > 26) {
+                // Do not assume a future Minecraft major still works with Java 25.
+                // Trust version metadata when present; zero means "unresolved" and must block launch.
+                return if (jsonMajorVersion > 0) jsonMajorVersion else 0
             }
 
             // 1.x branch

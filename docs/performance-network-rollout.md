@@ -46,3 +46,5 @@
 - Treat downloaded runtime metadata as a post-install invariant and do not select an older fallback for a future Java major the launcher does not yet support.
 - Add unit tests for 1.16.5 / 1.17 / 1.20.4 / 1.20.5 / 1.21.11 / 26.1 boundaries and Java-major compatibility.
 - Java 25 support on Android still needs device validation: verify signed runtime downloads for each packaged ABI, boot vanilla 26.1+, and separately test Fabric/Forge/Quilt plus renderer paths. Minecraft/JDK compatibility does not guarantee every mod-loader and ASM dependency is Java 25 compatible.
+
+- For future year-based Minecraft majors, trust a positive version-metadata Java requirement; if metadata is missing, stop with a clear error rather than defaulting to Java 25.

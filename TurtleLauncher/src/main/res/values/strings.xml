@@ -1024,6 +1024,7 @@
     <string name="game_exit_no_screenshot">Please don\'t just take a screenshot of the current app interface; otherwise, no one will know what happened. Share your log file or crash report!</string>
     <string name="game_autopick_runtime_failed">No suitable runtime environment found, set to the runtime environment selected for the current version</string>
     <string name="game_requires_java_version">this version needs Java %d</string>
+    <string name="game_java_requirement_unknown">Cannot determine the Java version required by Minecraft %1$s. Refresh the version metadata and try again.</string>
     <string name="game_tip">The game is currently running. You can see logs via the menu to check the game\'s status.</string>
     <!-- Crash/Black-screen watchdog -->
     <string name="watchdog_frozen_title">Game seems frozen</string>
