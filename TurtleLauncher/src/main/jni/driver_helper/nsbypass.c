@@ -146,8 +146,8 @@ bool patch_elf_soname(int patchfd, int realfd, uint16_t patchid) {
     if (ftruncate64(patchfd, realstat.st_size) == -1)
         return false;
 
-    char* target = mmap(NULL, realstat.st_size, PROT_READ | PROT_WRITE, MAP_SHARED, patchfd, 0);
-    if (!target)
+    char* target = mmap(NULL, (size_t) realstat.st_size, PROT_READ | PROT_WRITE, MAP_SHARED, patchfd, 0);
+    if (target == MAP_FAILED)
         return false;
 
     if (read(realfd, target, realstat.st_size) != realstat.st_size)
@@ -180,5 +180,6 @@ bool patch_elf_soname(int patchfd, int realfd, uint16_t patchid) {
             }
         }
     }
+    munmap(target, (size_t) realstat.st_size);
     return false;
 }
