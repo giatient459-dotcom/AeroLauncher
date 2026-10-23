@@ -29,10 +29,18 @@ void bigcore_set_affinity() {
         bigcore_format_cpu_path(path_buffer, corecnt);
         int corefreqfd = open(path_buffer, O_RDONLY);
         if(corefreqfd != -1) {
-            ssize_t read_count = read(corefreqfd, freq_buffer, FREQ_MAX);
+            ssize_t read_count = read(corefreqfd, freq_buffer, sizeof(freq_buffer) - 1);
             close(corefreqfd);
-            freq_buffer[read_count] = 0;
+            if (read_count <= 0) {
+                corecnt++;
+                continue;
+            }
+            freq_buffer[read_count] = '\0';
             core_freq = strtoul(freq_buffer, &discard, 10);
+            if (discard == freq_buffer || *discard != '\0') {
+                corecnt++;
+                continue;
+            }
             if(core_freq >= max_freq) {
                 max_freq = core_freq;
                 big_core_id = corecnt;
@@ -48,7 +56,7 @@ void bigcore_set_affinity() {
     CPU_SET_S(big_core_id, CPU_SETSIZE, &bigcore_affinity_set);
     int result = sched_setaffinity(0, CPU_SETSIZE, &bigcore_affinity_set);
     if(result != 0) {
-        printf("bigcore: setting affinity failed: %s\n", strerror(result));
+        printf("bigcore: setting affinity failed: %s\n", strerror(errno));
     }else{
         printf("bigcore: forced current thread onto big core\n");
     }
