@@ -24,14 +24,14 @@ class AllSettings {
         // ── Discord ────────────────────────────────────────────────────────────
         /** Master switch - when off, the SDK is never started/published and any live activity is cleared. */
         @JvmStatic val discordRpcPresenceEnabled = BooleanSettingUnit("discordRpcPresenceEnabled", true)
-        @JvmStatic val discordRpcName = StringSettingUnit("discordRpcName", "Turtle Launcher")
+        @JvmStatic val discordRpcName = StringSettingUnit("discordRpcName", "AeroLauncher")
         @JvmStatic val discordRpcDetails = StringSettingUnit("discordRpcDetails", "Playing {version}")
-        @JvmStatic val discordRpcState = StringSettingUnit("discordRpcState", "Launched with Turtle Launcher")
+        @JvmStatic val discordRpcState = StringSettingUnit("discordRpcState", "Launched with AeroLauncher")
         @JvmStatic val discordRpcShowElapsed = BooleanSettingUnit("discordRpcShowElapsed", true)
-        /** Optional override; defaults to Turtle Launcher's own registered application id. */
+        /** Optional override; defaults to AeroLauncher's configured Discord application id. */
         @JvmStatic val discordRpcApplicationId = StringSettingUnit("discordRpcApplicationId", "")
         @JvmStatic val discordRpcLargeImage = StringSettingUnit("discordRpcLargeImage", "")
-        @JvmStatic val discordRpcLargeText = StringSettingUnit("discordRpcLargeText", "Turtle Launcher")
+        @JvmStatic val discordRpcLargeText = StringSettingUnit("discordRpcLargeText", "AeroLauncher")
         @JvmStatic val discordRpcSmallImage = StringSettingUnit("discordRpcSmallImage", "")
         @JvmStatic val discordRpcSmallText = StringSettingUnit("discordRpcSmallText", "")
         /** Discord activity type: 0 Playing, 1 Streaming, 2 Listening, 3 Watching, 5 Competing. */
@@ -150,7 +150,7 @@ class AllSettings {
 
         // ── Game ──────────────────────────────────────────────────────────────
         @JvmStatic val versionIsolation         = BooleanSettingUnit("versionIsolation", true)
-        @JvmStatic val versionCustomInfo        = StringSettingUnit("versionCustomInfo", "TurtleLauncher")
+        @JvmStatic val versionCustomInfo        = StringSettingUnit("versionCustomInfo", "AeroLauncher")
         @JvmStatic val autoSetGameLanguage      = BooleanSettingUnit("autoSetGameLanguage", true)
         @JvmStatic val gameLanguageOverridden   = BooleanSettingUnit("gameLanguageOverridden", false)
         @JvmStatic val setGameLanguage          = StringSettingUnit("setGameLanguage", "system")
