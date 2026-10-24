@@ -191,7 +191,7 @@
     <string name="mod_check_dialog_title">Mod Check Report</string>
     <string name="mod_check_progress_message">Checking mods (%d / %d)</string>
     <string name="mod_check_touch_controller">Detected that Touch Controller mod (%s) is installed, the launcher is ready to enable control proxy to adapt to the mod.</string>
-    <string name="mod_check_sodium_or_embeddium">Detected a Sodium-family renderer mod (%s). Compatibility depends on the exact mod version and renderer. Check the mod release\'s graphics-driver requirements; TurtleLauncher does not suppress or patch crashes from these mods. Use the crash log for diagnosis.</string>
+<string name="mod_check_sodium_or_embeddium">Detected a Sodium-family renderer mod (%s). Compatibility depends on the exact mod version and renderer. Check the mod release\'s graphics-driver requirements; AeroLauncher does not suppress or patch crashes from these mods. Use the crash log for diagnosis.</string>
     <string name="mod_check_physics">The currently used physics mod (%s) is unpatched (replacing libPhysXJniBindings_64.so from x86_64 architecture to arm64), will crash on launch.</string>
     <string name="mod_check_mcef">MCEF (%s) cannot run on Android. It is usually used as a prerequisite dependency for WebDisplays/In-game Browser (browser).</string>
     <string name="mod_check_valkyrien_skies">Valkyrien Skies/Valkyrien Warfare (%s) cannot run directly in single-player mode. You must run it on a server otherwise the game will crash.</string>
@@ -299,7 +299,7 @@
     <string name="install_extras_title">Install Options</string>
     <string name="install_extras_subtitle">Add either of these to this install, then confirm below</string>
     <string name="install_extras_turtle_client">Turtle Client</string>
-    <string name="install_extras_turtle_client_desc">TurtleLauncher\'s own client mod</string>
+<string name="install_extras_turtle_client_desc">AeroLauncher\'s own client mod</string>
     <string name="install_extras_fps_boost">FPS Boost</string>
     <string name="install_extras_fps_boost_desc">Performance mod for smoother framerates</string>
     <string name="account_detail_uuid">UUID</string>
@@ -596,7 +596,7 @@
     <string name="main_welcome_back">Welcome back!</string>
     <string name="main_welcome_subtitle">Ready to play Minecraft Java Edition</string>
     <!-- Home screen dashboard (top bar + statistics cards) -->
-    <string name="main_top_bar_title">TurtleLauncher</string>
+<string name="main_top_bar_title">AeroLauncher</string>
     <string name="main_top_bar_subtitle">Smooth • Fast • Modern </string>
     <string name="main_section_statistics">Today\'s Statistics</string>
     <string name="main_stats_weekly_label">Play Time (Last 7 Days)</string>
@@ -634,7 +634,7 @@
     <string name="settings_row_advanced_title">Advanced Settings</string>
     <string name="settings_row_advanced_desc">Developer and experimental features</string>
     <string name="settings_row_about_title">About</string>
-    <string name="settings_row_about_desc">TurtleLauncher version and credits</string>
+<string name="settings_row_about_desc">AeroLauncher version and credits</string>
 
     <!-- Share Logs screen -->
     <string name="share_logs_title">Share Logs</string>
@@ -671,7 +671,7 @@
     <string name="ai_voice_hearing">Hearing you…</string>
     <string name="ai_voice_speaking">Turtle AI is speaking…</string>
     <string name="ai_voice_ended">Voice conversation ended</string>
-    <string name="ai_voice_no_mic">I need the microphone permission to talk out loud - enable it in Settings → Apps → TurtleLauncher → Permissions.</string>
+<string name="ai_voice_no_mic">I need the microphone permission to talk out loud - enable it in Settings → Apps → AeroLauncher → Permissions.</string>
     <string name="assistant_share_audio">Here\'s a recording I just shared - can you transcribe it?</string>
     <string name="ai_chat_clear_title">Clear conversation?</string>
     <string name="ai_chat_clear_message">This deletes the saved Assistant history on this device. It can\'t be undone.</string>
@@ -955,8 +955,8 @@
     <string name="setting_download_source_desc">Choose a mirror download source instead of using the official download source</string>
     <string name="setting_dns_server_title">DNS Server</string>
     <string name="setting_dns_server_desc">Use a specific public DNS resolver for the launcher\'s network requests, instead of the device\'s default</string>
-    <string name="setting_max_download_threads_title">Max Download Threads</string>
-    <string name="setting_max_download_threads_desc">Maximum number of concurrent downloads when downloading multiple files simultaneously, but too many threads will cause launcher lag. 64 threads are sufficient!</string>
+<string name="setting_max_download_threads_title">Concurrent Downloads</string>
+<string name="setting_max_download_threads_desc">Downloads Minecraft assets, libraries, and client files in parallel. Up to 20 files can download at once; the best speed depends on your network, server, storage, and device.</string>
     <string name="setting_version_isolation_title">Version Isolation</string>
     <string name="setting_version_isolation_desc">Enable version isolation for the game version\nWhen disabled, the game path will be .minecraft/\nWhen enabled, the game path will change to .minecraft/versions/&lt;version name&gt;/</string>
     <string name="setting_version_custom_info_title">Custom Info</string>
@@ -1040,7 +1040,7 @@
     <string name="mod_conflict_dialog_title">Possible mod conflicts detected</string>
     <string name="mod_conflict_dialog_header">%d class(es) are targeted by more than one mod\'s Mixin patches — this is a common cause of startup crashes when both are enabled together:</string>
     <string name="mod_metadata_conflict_dialog_title">Mod metadata reports compatibility problems</string>
-    <string name="mod_metadata_conflict_dialog_header">%1$d potential problem(s) found from installed mod metadata. Review these before launch; Turtle Launcher will not alter or disable any mod:</string>
+<string name="mod_metadata_conflict_dialog_header">%1$d potential problem(s) found from installed mod metadata. Review these before launch; AeroLauncher will not alter or disable any mod:</string>
     <string name="setting_mod_conflict_detection_title">Mod Compatibility Checks</string>
     <string name="setting_mod_conflict_detection_desc">Before launch, checks for overlapping Mixin targets, duplicate/provided mod IDs, and Fabric/Quilt metadata that declares incompatible mod pairs. Local archive scan only; no network.</string>
     <string name="mod_update_dialog_update_now">Update Now</string>
@@ -1172,8 +1172,8 @@
     <string name="about_sponsors_desc">The following are all the sponsors who support the development, thank you very much!</string>
     <string name="about_sponsors_amount">Time and Total Amount</string>
     <string name="about_button_support_development">Sponsor Development</string>
-    <string name="about_MovTery_desc">Main developer of TurtleLauncher (Endiq)</string>
-    <string name="about_TurtleLauncher_desc">Based on the open-source Turtle Launcher project, now maintained and developed by Endiq</string>
+<string name="about_MovTery_desc">Main developer of AeroLauncher (Endiq)</string>
+<string name="about_TurtleLauncher_desc">AeroLauncher is based on the open-source Turtle Launcher project and is maintained and developed by Endiq.</string>
     <string name="about_mcmod_desc">The launcher uses Mod and modpack Chinese translations from MC Wiki</string>
     <string name="about_VeraFirefly_desc">Provided technical support for rendering in the launcher</string>
     <string name="about_LingMuQiuZhu_desc">Provided technical support for the launcher</string>
@@ -1287,25 +1287,25 @@
     <string name="discord_connected_as">Connected as %1$s</string>
     <string name="discord_disconnect">Disconnect</string>
     <string name="discord_link_failed">Couldn\'t link your Discord account. Try again.</string>
-    <string name="discord_activity_title">Automatic Turtle Launcher presence</string>
-    <string name="discord_activity_description">Presence is managed automatically while using Turtle Launcher or playing Minecraft.</string>
+<string name="discord_activity_title">Automatic AeroLauncher presence</string>
+<string name="discord_activity_description">Presence is managed automatically while using AeroLauncher or playing Minecraft.</string>
     <string name="discord_rpc_customization_title">Rich Presence customization</string>
     <string name="discord_rpc_customization_description">Customize the activity name, details, state, timer, and optional application artwork.</string>
     <string name="discord_rpc_customization_summary">Session timer: %1$s</string>
     <string name="discord_rpc_customize">Customize presence</string>
     <string name="discord_rpc_name">Activity name</string>
-    <string name="discord_rpc_name_hint">Turtle Launcher</string>
+<string name="discord_rpc_name_hint">AeroLauncher</string>
     <string name="discord_rpc_details">Details text</string>
     <string name="discord_rpc_details_hint">Playing {version}</string>
     <string name="discord_rpc_state">State text</string>
-    <string name="discord_rpc_state_hint">Launched with Turtle Launcher</string>
+<string name="discord_rpc_state_hint">Launched with AeroLauncher</string>
     <string name="discord_rpc_elapsed">Show elapsed session time</string>
     <string name="discord_rpc_application_id">Discord application ID</string>
     <string name="discord_rpc_application_id_hint">Optional numeric application ID</string>
     <string name="discord_rpc_large_image">Large image asset key</string>
     <string name="discord_rpc_large_image_hint">Requires an application ID and uploaded asset</string>
     <string name="discord_rpc_large_text">Large image hover text</string>
-    <string name="discord_rpc_large_text_hint">Turtle Launcher</string>
+<string name="discord_rpc_large_text_hint">AeroLauncher</string>
     <string name="discord_rpc_small_image">Small image asset key</string>
     <string name="discord_rpc_small_image_hint">Optional corner icon; requires an application ID</string>
     <string name="discord_rpc_small_text">Small image hover text</string>
@@ -1324,7 +1324,7 @@
     <string name="discord_rpc_button2_hint">e.g. Join Discord</string>
     <string name="discord_rpc_button2_url">Button 2 link (URL)</string>
     <string name="discord_rpc_button2_url_hint">https://… opened when the button is clicked</string>
-    <string name="discord_rpc_template_help">Use {version} for the running Minecraft version and {activity} for Playing Minecraft or Browsing Turtle Launcher.</string>
+<string name="discord_rpc_template_help">Use {version} for the running Minecraft version and {activity} for Playing Minecraft or Browsing AeroLauncher.</string>
     <string name="discord_rpc_reset_customization">Reset customization</string>
     <string name="discord_rpc_reset_done">Discord presence customization reset</string>
     <string name="discord_rpc_on">On</string>
@@ -1338,14 +1338,14 @@
     <string name="discord_rpc_preview_button_hidden">hidden - needs both a label and a valid link</string>
     <string name="music_delete_track">Remove</string>
 
-    <string name="whats_new_title">🐢 What\'s New in TurtleLauncher</string>
+<string name="whats_new_title">🚀 What's New in AeroLauncher</string>
     <string name="whats_new_version">v3.1</string>
     <string name="whats_new_feature_1">🎭 Emotes: dependencies install themselves</string>
     <string name="whats_new_feature_1_desc">Installing the Emotecraft mod now automatically fetches its required Player Animation Library dependency (read straight from the mod\'s own metadata), so the game no longer crashes on launch with a missing-dependency error.</string>
     <string name="whats_new_feature_2">📜 Game logs are finally saved</string>
     <string name="whats_new_feature_2_desc">The game\'s own output — mod loaders, console messages, crash traces — is captured into the launcher log. The home screen\'s Last Game Log card shows the last session across restarts, and the Assistant can read it when you ask why the game crashed.</string>
     <string name="whats_new_feature_3">📤 Share logs straight into the Assistant</string>
-    <string name="whats_new_feature_3_desc">Turtle Launcher now appears in Android\'s share menu. Share any game log (file or text) from any app and the Assistant analyzes it on the spot — no copy-paste.</string>
+<string name="whats_new_feature_3_desc">AeroLauncher now appears in Android\'s share menu. Share any game log (file or text) from any app and the Assistant analyzes it on the spot — no copy-paste.</string>
     <string name="whats_new_warning">🧩 Renderer plugin apps (e.g. MobileGlues) show up in the renderer list right after you install them — no restart needed — and their supported Minecraft version range is honored like any built-in renderer.</string>
 
     <string name="preset_pvp_title">PvP Preset</string>
