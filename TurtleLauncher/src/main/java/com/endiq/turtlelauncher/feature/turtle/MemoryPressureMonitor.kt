@@ -15,6 +15,7 @@ object MemoryPressureMonitor {
 
     private val lifecycleLock = Any()
     @Volatile private var running = false
+    @Volatile private var generation = 0L
     @Volatile private var lastWarnedAt = 0L
     @Volatile private var monitorThread: Thread? = null
 
@@ -22,7 +23,9 @@ object MemoryPressureMonitor {
     fun start(context: Context) {
         val appContext = context.applicationContext
         synchronized(lifecycleLock) {
-            if (monitorThread?.isAlive == true) return
+            // A stop followed immediately by start must not be swallowed just because the old
+            // worker has not yet returned from its interrupted sleep.
+            if (running && monitorThread?.isAlive == true) return
 
             val activityManager = appContext.getSystemService(Context.ACTIVITY_SERVICE) as? ActivityManager
                 ?: run {
@@ -32,10 +35,14 @@ object MemoryPressureMonitor {
                 }
 
             running = true
+            val workerGeneration = ++generation
             val worker = Thread({
                 try {
                     val totalMem = getTotalDeviceMemory(appContext)
-                    while (running && !Thread.currentThread().isInterrupted) {
+                    while (running &&
+                        workerGeneration == generation &&
+                        !Thread.currentThread().isInterrupted
+                    ) {
                         val info = ActivityManager.MemoryInfo()
                         try {
                             activityManager.getMemoryInfo(info)
@@ -69,6 +76,7 @@ object MemoryPressureMonitor {
                     Logging.e(TAG, "Memory monitor stopped after an unexpected error", e)
                 } finally {
                     synchronized(lifecycleLock) {
+                        // An older worker must never clear the reference/state of a newer worker.
                         if (monitorThread === Thread.currentThread()) {
                             monitorThread = null
                             running = false
@@ -85,6 +93,7 @@ object MemoryPressureMonitor {
     fun stop() {
         synchronized(lifecycleLock) {
             running = false
+            generation++
             monitorThread?.interrupt()
         }
     }
