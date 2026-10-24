@@ -130,8 +130,9 @@ internal object ResourcePackFiles {
                     c == '"' -> return out.toString()
                     c.code == 92 -> {
                         if (index >= source.length) error("Incomplete escape")
-                        when (val escaped = source[index++]) {
-                            '"' , 92.toChar(), '/' -> out.append(escaped)
+                        val escaped = source[index++]
+                        if (escaped.code == 92) out.append(escaped) else when (escaped) {
+                            '"', '/' -> out.append(escaped)
                             'b' -> out.append(8.toChar())
                             'f' -> out.append(12.toChar())
                             'n' -> out.append(10.toChar())
