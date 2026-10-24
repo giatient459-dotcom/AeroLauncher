@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#080F20" />
-        </shape>
-    </item>
-    <item
-        android:drawable="@drawable/aerolauncher_mark"
-        android:gravity="center"
-        android:width="260dp"
-        android:height="260dp" />
-</layer-list>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item android:drawable="@color/background_app" /><item android:drawable="@drawable/aerolauncher_brand_mark" /></layer-list>

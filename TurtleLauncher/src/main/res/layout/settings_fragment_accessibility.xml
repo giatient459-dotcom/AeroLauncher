@@ -173,7 +173,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:textColor="@color/turtle_text_secondary"
-                        tools:text="Default (Turtle)" />
+                        tools:text="Default (Aero)" />
                 </com.endiq.turtlelauncher.ui.layout.AnimRelativeLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>

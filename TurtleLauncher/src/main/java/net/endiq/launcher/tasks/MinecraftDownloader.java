@@ -207,7 +207,7 @@ public class MinecraftDownloader {
         File targetDirectory = new File(PathManager.DIR_CACHE, "natives/"+versionName);
         FileUtils.ensureDirectory(targetDirectory);
 
-        // TurtleLauncher Fast Boot: skip re-extraction entirely if a marker proves the
+        // AeroLauncher Fast Boot: skip re-extraction entirely if a marker proves the
         // exact same set of source AARs (path + size + mtime) was already extracted here.
         File marker = new File(targetDirectory, ".tl_natives_marker");
         String signature = buildNativesSignature();

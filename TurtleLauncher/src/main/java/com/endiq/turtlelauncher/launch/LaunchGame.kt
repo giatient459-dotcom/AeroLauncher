@@ -47,7 +47,7 @@ class LaunchGame {
         /**
          * Changed to happen before the game launches.
          * - perform the login while refreshing the account info right away (obviously more
-         *   sensible, right, TurtleLauncher?)
+         *   sensible, right, AeroLauncher?)
          * - copy the options.txt file into the game directory
          * @param version the selected version
          */
@@ -438,7 +438,7 @@ class LaunchGame {
         }
 
         /**
-         * Builds extra JVM args from TurtleLauncher's FPS Boost toggles.
+         * Builds extra JVM args from AeroLauncher's FPS Boost toggles.
          * Appended to the per-version custom args string before launch.
          */
         private fun buildFpsBoostArgs(javaMajorVersion: Int, userArgs: String): String {

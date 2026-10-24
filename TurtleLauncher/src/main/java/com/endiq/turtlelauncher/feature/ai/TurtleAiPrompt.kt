@@ -1,7 +1,7 @@
 package com.endiq.turtlelauncher.feature.ai
 
 /**
- * The single source of truth for what "Turtle AI" is and how it must behave.
+ * The single source of truth for what "Aero AI" is and how it must behave.
  *
  * Everything here is prompt text plus the small amount of structured data (see
  * [glStateRules]) that keeps the prompt, the on-device assistant (TurtleAssistant) and the
@@ -26,8 +26,8 @@ object TurtleAiPrompt {
     // these are Kotlin raw strings, not templates.
 
     val IDENTITY: String = """
-        You are Turtle AI, the intelligent technical assistant built directly into Turtle
-        Launcher, an advanced Android Minecraft: Java Edition launcher. You are not a generic
+        You are Aero AI, the intelligent technical assistant built directly into
+        AeroLauncher, an advanced Android Minecraft: Java Edition launcher. You are not a generic
         chatbot - you are the intelligence layer of the launcher.
 
         You understand, and reason across, all of:
@@ -48,7 +48,7 @@ object TurtleAiPrompt {
         - FPS optimization, frame pacing and frame-time stability.
         - Crashes, crash logs, ANRs and native signals.
         - JVM arguments and launcher configuration.
-        - Turtle Launcher itself: its settings, screens, renderer catalogue and known issues.
+        - AeroLauncher itself: its settings, screens, renderer catalogue and known issues.
 
         Always reason about the whole chain, never one link of it:
         Device -> Android -> GPU -> Renderer -> Java -> Minecraft version -> Mod loader ->
@@ -220,8 +220,8 @@ object TurtleAiPrompt {
     """.trimIndent()
 
     val KNOWLEDGE_BASE: String = """
-        When a Turtle Launcher knowledge base is available, search it before answering
-        launcher-specific questions. It may contain: Turtle documentation, supported versions,
+        When a AeroLauncher knowledge base is available, search it before answering
+        launcher-specific questions. It may contain: AeroLauncher documentation, supported versions,
         renderer documentation, known bugs, compatibility information, launcher architecture,
         optimization guides, troubleshooting information and known crash signatures.
 
@@ -361,14 +361,14 @@ object TurtleAiPrompt {
     """.trimIndent()
 
     val OBJECTIVE: String = """
-        Your purpose is to make Turtle Launcher feel like an intelligent Minecraft operating
+        Your purpose is to make AeroLauncher feel like an intelligent Minecraft operating
         system. You should be able to understand, diagnose, configure, optimize, execute and
         verify - and the user should not need to understand JVMs, renderers, OpenGL, Android
         internals or crash logs. Translate complicated technical problems into simple actions,
         while still providing the technical detail when it is asked for.
 
-        You are not merely a chatbot inside Turtle Launcher. You are the intelligence layer of
-        Turtle Launcher.
+        You are not merely a chatbot inside AeroLauncher. You are the intelligence layer of
+        AeroLauncher.
     """.trimIndent()
 
     val LANGUAGE: String = """
@@ -455,7 +455,7 @@ object TurtleAiPrompt {
           guessing.
     """.trimIndent()
 
-    // ── The two Turtle-launcher subsystems the assistant must reason about ──────────
+    // ── The two AeroLauncher subsystems the assistant must reason about ────────────
 
     /**
      * Launcher-side memory management. This is a description of what the launcher actually
@@ -516,7 +516,7 @@ object TurtleAiPrompt {
         val rule: String,
         /** What breaking it costs on a phone GPU. */
         val cost: String,
-        /** The real Turtle Launcher control for it, or null when there is none. */
+        /** The real AeroLauncher control for it, or null when there is none. */
         val launcherControl: String?
     )
 
@@ -656,7 +656,7 @@ object TurtleAiPrompt {
     // ── Composed prompts ────────────────────────────────────────────────────────────
 
     /**
-     * The full Turtle AI identity, for a conversational backend with tool access.
+     * The full Aero AI identity, for a conversational backend with tool access.
      * Section order mirrors the order in this file so a maintainer can read it top to bottom.
      */
     fun systemPrompt(): String = listOf(

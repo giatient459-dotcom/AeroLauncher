@@ -16,7 +16,7 @@ import java.io.File
 import java.util.zip.ZipFile
 
 /**
- * FCL driver plugins plus TurtleLauncher local driver plugins (zip install, auto-update).
+ * FCL driver plugins plus AeroLauncher local driver plugins (zip install, auto-update).
  * [FCL DriverPlugin.kt](https://github.com/FCL-Team/FoldCraftLauncher/blob/main/FCLauncher/src/main/java/com/tungsten/fclauncher/plugins/DriverPlugin.kt)
  */
 object DriverPluginManager {
@@ -74,7 +74,7 @@ object DriverPluginManager {
 
     /**
      * Try to parse driver plugins from the local `/files/driver_plugins/` directory
-     * (a TurtleLauncher addition).
+     * (a AeroLauncher addition).
      * @return whether the plugin passes validation
      *
      * Driver plugin folder layout (same convention as renderer plugins):

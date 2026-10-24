@@ -182,7 +182,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
 
         binding.mainControlLayout.setModifiable(false);
 
-        // TurtleLauncher Control Switcher: tap to jump to the next control layout without
+        // AeroLauncher Control Switcher: tap to jump to the next control layout without
         // opening the game menu. Visibility follows AllSettings.controlSwitcherEnabled, which
         // the in-game menu's "Control Switcher" row (Control tab) toggles - see
         // MenuSettingsInitListener below. Icon is the keyboard's Tab key.
@@ -784,7 +784,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             this.binding.disableGestures.setChecked(AllSettings.getDisableGestures().getValue());
             this.binding.disableDoubleTap.setChecked(AllSettings.getDisableDoubleTap().getValue());
             this.binding.controlSwitcher.setChecked(AllSettings.getControlSwitcherEnabled().getValue());
-            // TurtleLauncher Emotes row state.
+            // AeroLauncher Emotes row state.
             this.binding.emotes.setChecked(AllSettings.getEmotesEnabled().getValue());
             refreshEmotesRows();
             this.binding.enableGyro.setChecked(AllSettings.getEnableGyro().getValue());
@@ -847,7 +847,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             this.binding.controlSwitcher.setOnCheckedChangeListener(this);
             this.binding.controlSwitcherLayout.setOnClickListener(this);
 
-            // TurtleLauncher Emotes: toggle + wheel trigger + website shortcut.
+            // AeroLauncher Emotes: toggle + wheel trigger + website shortcut.
             this.binding.emotes.setOnCheckedChangeListener(this);
             this.binding.emotesLayout.setOnClickListener(this);
             this.binding.emoteWheelButton.setOnClickListener(this);
@@ -1151,7 +1151,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             view.setVisibility(visible ? View.VISIBLE : View.GONE);
         }
 
-        /** TurtleLauncher Emotes: show/hide the emote action rows per the Emote button
+        /** AeroLauncher Emotes: show/hide the emote action rows per the Emote button
          *  toggle. The toggle row itself always stays visible - it IS the toggle. */
         private void refreshEmotesRows() {
             boolean on = AllSettings.getEmotesEnabled().getValue();
@@ -1169,7 +1169,7 @@ public class MainActivity extends BaseActivity implements ControlButtonMenuListe
             }
         }
 
-        /** TurtleLauncher Emotes: open the community emote library (the same site the
+        /** AeroLauncher Emotes: open the community emote library (the same site the
          *  Settings -> Emotes screen embeds) in the browser, for when downloading from the
          *  WebView or managing files is not what the player wants right now. */
         private void openEmoteWebsite() {

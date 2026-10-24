@@ -580,7 +580,7 @@
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:textColor="@color/turtle_text_primary"
-                tools:text="TurtleLauncher"/>
+                tools:text="AeroLauncher"/>
 
             <TextView
                 android:id="@+id/footer_version_text"

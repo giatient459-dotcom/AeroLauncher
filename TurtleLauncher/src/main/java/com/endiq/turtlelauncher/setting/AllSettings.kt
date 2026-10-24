@@ -28,7 +28,7 @@ class AllSettings {
         @JvmStatic val discordRpcDetails = StringSettingUnit("discordRpcDetails", "Playing {version}")
         @JvmStatic val discordRpcState = StringSettingUnit("discordRpcState", "Launched with AeroLauncher")
         @JvmStatic val discordRpcShowElapsed = BooleanSettingUnit("discordRpcShowElapsed", true)
-        /** Optional override; defaults to AeroLauncher's configured Discord application id. */
+        /** Optional override; defaults to AeroLauncher's own registered application id. */
         @JvmStatic val discordRpcApplicationId = StringSettingUnit("discordRpcApplicationId", "")
         @JvmStatic val discordRpcLargeImage = StringSettingUnit("discordRpcLargeImage", "")
         @JvmStatic val discordRpcLargeText = StringSettingUnit("discordRpcLargeText", "AeroLauncher")
@@ -128,7 +128,7 @@ class AllSettings {
          *  keyboard only opens on explicit launcher request (keyboard button).
          *  Read by SdlBridge.getSdlImeAutoShowEnabled. */
         @JvmStatic val sdlAutoShowIme            = BooleanSettingUnit("sdlAutoShowIme", true)
-        /** TurtleLauncher Emotes: master toggle for the in-game menu's Emotes actions
+        /** AeroLauncher Emotes: master toggle for the in-game menu's Emotes actions
          *  ("Play emote" wheel button + emote-website shortcut). Wired in MainActivity's
          *  MenuSettingsInitListener. */
         @JvmStatic val emotesEnabled            = BooleanSettingUnit("emotesEnabled", true)
@@ -216,7 +216,7 @@ class AllSettings {
         @JvmStatic val quitLauncher             = BooleanSettingUnit("quitLauncher", true)
         @JvmStatic val acceptPreReleaseUpdates  = BooleanSettingUnit("acceptPreReleaseUpdates", false)
 
-        // ── TurtleLauncher Mod Auto-Maintenance ─────────────────────────────────
+        // ── AeroLauncher Mod Auto-Maintenance ─────────────────────────────────
         /** Automatically fetch & install a mod's missing mandatory dependencies from Modrinth before launch. */
         @JvmStatic val autoDependencyInstall    = BooleanSettingUnit("autoDependencyInstall", true)
         /** Automatically check installed mods for newer Modrinth versions before launch and offer to update them. */
@@ -230,7 +230,7 @@ class AllSettings {
         /** Fast Boot: skips file checksum/manifest verification and the pre-launch RAM check dialog to launch faster. */
         @JvmStatic val fastBoot                 = BooleanSettingUnit("fastBoot", true)
 
-        // ── TurtleLauncher Phone Settings: CPU ───────────────────────────────────
+        // ── AeroLauncher Phone Settings: CPU ───────────────────────────────────
         /** Detect this device's core count via Runtime.availableProcessors() each launch
          *  (clamped to 1-16, falling back to 8 if the platform reports something bogus)
          *  and pass it through -XX:ActiveProcessorCount. Off only makes sense alongside
@@ -251,7 +251,7 @@ class AllSettings {
          *  pattern as bigCoreAffinity's POJAV_BIG_CORE_AFFINITY above. */
         @JvmStatic val schedulerTuning          = BooleanSettingUnit("schedulerTuning", true)
 
-        // ── TurtleLauncher Phone Settings: Memory ────────────────────────────────
+        // ── AeroLauncher Phone Settings: Memory ────────────────────────────────
         @JvmStatic val autoRamCalculator        = BooleanSettingUnit("autoRamCalculator", true)
         /** -Xms = -Xmx (reserve the full heap up front - fewer heap-resize GC pauses, more
          *  up-front RAM commit). Off allocates -Xms at half of -Xmx instead. */
@@ -264,7 +264,7 @@ class AllSettings {
          *  pause-count/total-pause-time summary to the launcher log on exit. */
         @JvmStatic val gcStatistics              = BooleanSettingUnit("gcStatistics", false)
 
-        // ── TurtleLauncher FPS Boost ──────────────────────────────────────────
+        // ── AeroLauncher FPS Boost ──────────────────────────────────────────
         /** Explicit maxFps=260 / V-Sync-off override, with rollback; adds -XX:+DisableExplicitGC. */
         @JvmStatic val unlimitedFps             = BooleanSettingUnit("unlimitedFps", false)
         /** Low-latency rendering: JVM string/compile optimizations */
@@ -277,7 +277,7 @@ class AllSettings {
         @JvmStatic val adaptiveFrameTiming      = BooleanSettingUnit("adaptiveFrameTiming", true)
         @JvmStatic val autoMemoryCleanup        = BooleanSettingUnit("autoMemoryCleanup", false)
 
-        // ── TurtleLauncher Renderer/Driver Plugin Updater ───────────────────────
+        // ── AeroLauncher Renderer/Driver Plugin Updater ───────────────────────
         /** Automatically check for renderer/driver plugin updates from upstream sources on launcher start. */
         @JvmStatic val autoCheckPluginUpdates   = BooleanSettingUnit("autoCheckPluginUpdates", true)
         /** Timestamp (ms) of the last renderer/driver plugin update check, used for the 5-minute cooldown. */
@@ -288,7 +288,7 @@ class AllSettings {
         @JvmStatic val lastAutoPerformanceProfile = StringSettingUnit("lastAutoPerformanceProfile", "")
         @JvmStatic val lastAutoRamAllocation    = IntSettingUnit("lastAutoRamAllocation", -1)
 
-        // ── TurtleLauncher In-Game HUD Modules ───────────────────────────────────
+        // ── AeroLauncher In-Game HUD Modules ───────────────────────────────────
         /** Clicks-per-second counter, tracked from the virtual left mouse button (attack). */
         @JvmStatic val showCpsHud                = BooleanSettingUnit("showCpsHud", true)
         /** Live WASD + Space key-press indicator. */
@@ -334,7 +334,7 @@ class AllSettings {
             IntSettingUnit("hotbarHeight", Tools.currentDisplayMetrics.heightPixels / 4)
         }
 
-        // ── TurtleLauncher v10 ────────────────────────────────────────────────
+        // ── AeroLauncher v10 ────────────────────────────────────────────────
         // HUD / performance
         @JvmStatic val backgroundAssetPrefetch  = BooleanSettingUnit("backgroundAssetPrefetch", true)
         @JvmStatic val smartWarmStart           = BooleanSettingUnit("smartWarmStart", true)
@@ -417,7 +417,7 @@ class AllSettings {
         @JvmStatic val aiModelLive              = StringSettingUnit("aiModelLive", "auto")
         @JvmStatic val aiSkinFilterEnabled       = BooleanSettingUnit("aiSkinFilterEnabled", false)
 
-        // ── TurtleLauncher built-in AI Assistant (top bar → Assistant) ────────
+        // ── AeroLauncher built-in AI Assistant (top bar → Assistant) ────────
         /** The Assistant works with no API key, no account and no network: it's a local
          *  knowledge base + live-launcher-state reader (see feature/ai/TurtleAssistant.kt).
          *  Its two optional extras - answering in other languages and searching the internet
@@ -429,7 +429,7 @@ class AllSettings {
          *  session starts from a clean transcript. */
         @JvmStatic val aiAssistantHistoryEnabled = BooleanSettingUnit("aiAssistantHistoryEnabled", true)
 
-        // ── Turtle AI: language, optional cloud brain, optional web search ──────
+        // ── Aero AI: language, optional cloud brain, optional web search ──────
         // The Assistant still works with none of this configured: on-device rule engine,
         // English answers. These four switches are what let it talk to the user in their own
         // language or answer things the launcher itself has no opinion about.

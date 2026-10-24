@@ -40,7 +40,7 @@ DEFAULT_ALIAS = """        <!-- Home-screen icon choices. Exactly one launcher e
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:label="Turtle Launcher"
+            android:label="@string/app_name"
             android:targetActivity="com.endiq.turtlelauncher.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,7 +56,7 @@ def alias_xml(key: str) -> str:
             android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/{PREFIX_RES}{key}"
-            android:label="Turtle Launcher"
+            android:label="@string/app_name"
             android:targetActivity="com.endiq.turtlelauncher.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

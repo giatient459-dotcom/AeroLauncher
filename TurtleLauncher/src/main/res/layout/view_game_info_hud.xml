@@ -210,7 +210,7 @@
 
     </LinearLayout>
 
-    <!-- TurtleLauncher v10: Network Ping module -->
+    <!-- AeroLauncher v10: Network Ping module -->
     <TextView
         android:id="@+id/ping_text"
         android:layout_width="wrap_content"
@@ -224,7 +224,7 @@
         android:textColor="@android:color/white"
         tools:ignore="HardcodedText" />
 
-    <!-- TurtleLauncher v10: RAM Usage Graph module (sparkline, sits under the FPS/memory text) -->
+    <!-- AeroLauncher v10: RAM Usage Graph module (sparkline, sits under the FPS/memory text) -->
     <com.endiq.turtlelauncher.feature.turtle.RamGraphView
         android:id="@+id/ram_graph_view"
         android:layout_width="@dimen/_84sdp"
@@ -232,7 +232,7 @@
         android:layout_marginTop="@dimen/_4sdp"
         android:visibility="gone" />
 
-    <!-- TurtleLauncher v10: one-tap screenshot shortcut -->
+    <!-- AeroLauncher v10: one-tap screenshot shortcut -->
     <TextView
         android:id="@+id/screenshot_button"
         android:layout_width="wrap_content"

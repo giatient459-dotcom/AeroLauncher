@@ -59,7 +59,7 @@ object PluginLoader {
             }
         }
 
-        // Try to parse the local driver plugins (a TurtleLauncher addition that supports
+        // Try to parse the local driver plugins (a AeroLauncher addition that supports
         // plugins installed by the driver auto-update feature).
         PathManager.DIR_INSTALLED_DRIVER_PLUGIN.listFiles()?.let { files ->
             files.forEach { file ->

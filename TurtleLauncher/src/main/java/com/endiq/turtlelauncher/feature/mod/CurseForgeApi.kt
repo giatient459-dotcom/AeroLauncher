@@ -11,7 +11,7 @@ import okhttp3.Request
  * that's all a manifest.json ever gives you, unlike Modrinth's modrinth.index.json which
  * embeds a direct URL per file. CurseForge's v1 API requires a key (issued to registered
  * apps by Overwolf/CurseForge Core) for every request, including this one - there's no
- * keyless path anymore. TurtleLauncher doesn't ship one; this only does anything once the
+ * keyless path anymore. AeroLauncher doesn't ship one; this only does anything once the
  * person supplies their own via AllSettings.curseForgeApiKey.
  *
  * See CurseForgeModPackInstallHelper for how a missing/blank key is handled: overrides and

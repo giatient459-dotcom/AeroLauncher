@@ -30,7 +30,7 @@ public class AsyncVersionList {
             File versionFile = new File(PathManager.FILE_VERSION_LIST);
             JMinecraftVersionList versionList = null;
             try {
-                // TurtleLauncher Fast Boot: skip the network refresh entirely and use
+                // AeroLauncher Fast Boot: skip the network refresh entirely and use
                 // whatever cached version list we have on disk, however stale.
                 boolean fastBoot = com.endiq.turtlelauncher.setting.AllSettings.getFastBoot().getValue();
                 if (!versionFile.exists() || (!fastBoot && ZHTools.getCurrentTimeMillis() > versionFile.lastModified() + 86400000)) {

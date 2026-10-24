@@ -13,7 +13,8 @@ import java.io.File
  * Where AI-generated files live, and how to open them.
  *
  * Everything the Assistant produces - images, video, spoken audio - is written under
- * `TurtleAI/` inside the launcher's game home directory. That location is deliberate:
+ * `TurtleAI/` (the original folder name, kept so existing generated files stay
+ * reachable) inside the launcher's game home directory. That location is deliberate:
  *
  *  - it is inside the app's own storage, so no permission is needed to write there;
  *  - the launcher already exposes that directory through its DocumentsProvider, which means
@@ -33,6 +34,8 @@ object TurtleAiFiles {
 
     private const val TAG = "TurtleAiFiles"
 
+    // Storage folder name kept from the original brand: renaming it would orphan
+    // every image, video and recording users have already generated.
     private const val FOLDER = "TurtleAI"
 
     /** `<game home>/TurtleAI/`. */

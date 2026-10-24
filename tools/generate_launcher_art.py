@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Reproducible Turtle art. Requires Pillow with libwebp; never overwrites original art.
+"""Reproducible animated logo art. Requires Pillow with libwebp; never overwrites original art.
 Run: python tools/generate_launcher_art.py
 Animated logos are short, finite light sweeps (not perpetual render loops).
+
+The source artwork (the AeroLauncher wordmark and emblem) is produced by
+tools/generate_aero_identity.py; this script only derives the one-shot
+animations and the built-in voxel backgrounds from it.
 """
 import math
 import random

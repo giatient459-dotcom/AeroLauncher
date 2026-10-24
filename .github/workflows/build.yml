@@ -131,7 +131,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: TurtleLauncher-unit-test-reports
+          name: AeroLauncher-unit-test-reports
           path: "**/build/test-results/testDebugUnitTest/*.xml"
           if-no-files-found: warn
 
@@ -166,5 +166,5 @@ jobs:
       - name: Upload release APK
         uses: actions/upload-artifact@v6
         with:
-          name: TurtleLauncher-release-apk
+          name: AeroLauncher-release-apk
           path: "**/build/outputs/apk/release/*.apk"

@@ -253,7 +253,7 @@ public final class JREUtils {
             envMap.put("POJAV_LOW_LATENCY_RENDERING", "1");
         if (AllSettings.getBigCoreAffinity().getValue())
             envMap.put("POJAV_BIG_CORE_AFFINITY", "1");
-        // TurtleLauncher Phone Settings: Scheduler Tuning - only meaningful once Advanced
+        // AeroLauncher Phone Settings: Scheduler Tuning - only meaningful once Advanced
         // CPU Tuning is expanded; same env-var-handoff pattern as POJAV_BIG_CORE_AFFINITY
         // above (native side reads the flag, this launcher only signals intent).
         if (AllSettings.getAdvancedCpuTuning().getValue() && AllSettings.getSchedulerTuning().getValue())
@@ -473,14 +473,14 @@ public final class JREUtils {
         purgeArg(userArgs, "-Dorg.lwjgl.freetype.libname");
         // Overridden by us to specify the exact number of cores that the android system has
         purgeArg(userArgs, "-XX:ActiveProcessorCount");
-        // Overridden below by TurtleLauncher's GC Statistics toggle, if it's on
+        // Overridden below by AeroLauncher's GC Statistics toggle, if it's on
         purgeArg(userArgs, "-Xlog:gc");
 
         userArgs.add("-javaagent:" + LibPath.MIO_LIB_PATCHER.getAbsolutePath());
 
         //Add automatically generated args
         int ramAllocationMb = AllSettings.getRamAllocation().getValue().getValue();
-        // TurtleLauncher Memory Optimizer: Equal Heap Sizes (-Xms = -Xmx) reserves the whole
+        // AeroLauncher Memory Optimizer: Equal Heap Sizes (-Xms = -Xmx) reserves the whole
         // heap up front, trading a bigger initial commit for fewer heap-resize GC pauses mid
         // game. Off instead starts small (half of -Xmx) and lets the JVM grow it on demand.
         boolean equalHeapSizes = com.endiq.turtlelauncher.setting.AllSettings.getEqualHeapSizes().getValue();
@@ -506,7 +506,7 @@ public final class JREUtils {
         if (coreCount <= 0 || coreCount > 16) coreCount = 8;
         userArgs.add("-XX:ActiveProcessorCount=" + coreCount);
 
-        // TurtleLauncher Phone Settings: GC Statistics - JDK unified logging of every GC
+        // AeroLauncher Phone Settings: GC Statistics - JDK unified logging of every GC
         // pause to the launcher log, so a slow session can be diagnosed after the fact.
         if (com.endiq.turtlelauncher.setting.AllSettings.getGcStatistics().getValue()) {
             userArgs.add("-Xlog:gc:file=" + PathManager.DIR_CACHE.getAbsolutePath() + "/gc.log::filecount=0");

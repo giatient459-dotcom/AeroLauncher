@@ -19,7 +19,7 @@ import java.util.zip.ZipFile
  * top-level folder named after the instance), occasionally bare `.minecraft/` for a
  * hand-built zip - so there's nothing to fetch, just extract it (same shape as CurseForge's
  * "overrides/" extraction below), then hand the version+loader found in mmc-pack.json to
- * TurtleLauncher's normal installer pipeline.
+ * AeroLauncher's normal installer pipeline.
  */
 class MultiMCModPackInstallHelper {
     companion object {

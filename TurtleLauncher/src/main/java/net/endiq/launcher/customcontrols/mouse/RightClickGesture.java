@@ -48,7 +48,7 @@ public class RightClickGesture extends ValidatorGesture{
         if(!mGestureValid || isSwitching) return;
         boolean fingerStill = LeftClickGesture.isFingerStill(mGestureStartX, mGestureStartY, mGestureEndX, mGestureEndY, LeftClickGesture.FINGER_STILL_THRESHOLD);
         if(!fingerStill) return;
-        // TurtleLauncher (Zalith Launcher 2 gestureTapMouseAction port): which mouse button
+        // AeroLauncher (Zalith Launcher 2 gestureTapMouseAction port): which mouse button
         // the quick-tap gesture sends is user-configurable; upstream hardcodes RIGHT.
         int button = GestureButtons.tapButton();
         CallbackBridge.sendMouseButton(button, true);

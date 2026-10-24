@@ -11,14 +11,14 @@ object AiCrashAdvisor {
 
     /**
      * The diagnosis persona comes from [TurtleAiPrompt] so the crash advisor, the on-device
-     * assistant and any future Turtle AI backend all reason from one spec (including the
+     * assistant and any future Aero AI backend all reason from one spec (including the
      * launcher-side memory-management and OpenGL state-optimization sections, which are
      * exactly the two subsystems a mobile Minecraft crash usually implicates).
      */
     private val SYSTEM_PROMPT: String = TurtleAiPrompt.crashAdvisorSystemPrompt()
 
     /**
-     * The system prompt for one call: the shared Turtle AI crash persona plus the instruction to
+     * The system prompt for one call: the shared Aero AI crash persona plus the instruction to
      * write the answer in the user's own language. The crash path runs from the game JVM's exit
      * hook, which has no Context, so [languageTag] is optional and falls back to the process
      * locale - still the user's language, just read a different way.

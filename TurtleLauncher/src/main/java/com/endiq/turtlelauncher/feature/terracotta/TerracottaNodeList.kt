@@ -33,8 +33,8 @@ object TerracottaNodeList {
      * The third is FoldCraftLauncher's original list, kept for continuity.
      */
     private val REMOTE_SOURCES = listOf(
-        "https://raw.githubusercontent.com/Endiq-jar/TurtleLauncher/main/terracotta-nodes.json",
-        "https://cdn.jsdelivr.net/gh/Endiq-jar/TurtleLauncher@main/terracotta-nodes.json",
+        "https://raw.githubusercontent.com/giatient459-dotcom/AeroLauncher/main/terracotta-nodes.json",
+        "https://cdn.jsdelivr.net/gh/giatient459-dotcom/AeroLauncher@main/terracotta-nodes.json",
         "https://terracotta.glavo.site/nodes",
     )
 

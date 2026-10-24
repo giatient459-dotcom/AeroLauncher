@@ -333,7 +333,7 @@ class VersionConfigFragment : FragmentWithAnim(R.layout.fragment_version_config)
                 customInfoEdit.setText(config.getCustomInfo())
                 // JVM launch arguments.
                 jvmArgsEdit.setText(config.getJavaArgs())
-                //TurtleLauncher Phone Settings: per-instance CPU core override (blank/0 = follow global)
+                //AeroLauncher Phone Settings: per-instance CPU core override (blank/0 = follow global)
                 cpuCoreOverrideEdit.setText(
                     config.getCpuCoreOverride().takeIf { it > 0 }?.toString() ?: ""
                 )

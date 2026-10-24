@@ -109,7 +109,7 @@ object CrashAnalyzer {
                         "native library load later in the launch (NativeLibrariesBootstrap.loadLWJGLSystem) could " +
                         "no longer locate the bundled (perfectly present) liblwjgl.so either, crashing the launch.",
                     listOf(
-                        "Update to the latest TurtleLauncher build - SdlMainReadyBootstrap now loads libpojavexec " +
+                        "Update to the latest AeroLauncher build - SdlMainReadyBootstrap now loads libpojavexec " +
                             "directly instead of touching org.lwjgl.glfw.GLFW, so it no longer depends on any class " +
                             "from the version-mismatched lwjgl-glfw-classes.jar.",
                         "If it still happens after updating: the official LWJGL jar version Minecraft downloaded " +
@@ -129,7 +129,7 @@ object CrashAnalyzer {
                         "-D system properties in order and the last one for a given key wins, the incomplete one " +
                         "silently takes over and the game can never find liblwjgl.so / libpojavexec.so / libopenal.so.",
                     listOf(
-                        "Update to the latest TurtleLauncher build — this exact bug is fixed in LaunchArgs.kt (the native library path is now re-asserted last, after Minecraft's own JVM args, so it can't be overridden).",
+                        "Update to the latest AeroLauncher build — this exact bug is fixed in LaunchArgs.kt (the native library path is now re-asserted last, after Minecraft's own JVM args, so it can't be overridden).",
                         "If it still happens after updating: clear the natives cache for this version below, then relaunch.",
                         "Make sure the APK was installed as the universal/arm64 build and not a stripped split APK with native libraries removed."
                     ),
@@ -146,7 +146,7 @@ object CrashAnalyzer {
                         "through an uninitialized function pointer, crashing at pc=0x0 on every launch, " +
                         "regardless of device or GPU.",
                     listOf(
-                        "If you're on a built-in renderer (Holy GL4ES, LTW, MobileGlues, VirGL, Zink, Freedreno, VGPU), update to the latest TurtleLauncher build — this is fixed in RendererInterface.getNativeRendererId().",
+                        "If you're on a built-in renderer (Holy GL4ES, LTW, MobileGlues, VirGL, Zink, Freedreno, VGPU), update to the latest AeroLauncher build — this is fixed in RendererInterface.getNativeRendererId().",
                         "If you're on a renderer plugin: check the plugin's declared POJAV_RENDERER value against the six libpojavexec.so recognizes (opengles, custom_gallium, vulkan_zink, gallium_freedreno, gallium_panfrost, gallium_virgl) and report a mismatch to the plugin's author.",
                         "As an immediate workaround, reset this version's renderer override below, or pick a different one manually in Settings → Video → Renderer."
                     ),
@@ -218,7 +218,7 @@ object CrashAnalyzer {
                         "renderer path needs on Minecraft 26.x to present finished frames.",
                     listOf(
                         "Switch renderer: Settings → Video → Renderer, pick a non-Zink option (OpenGL ES / Vulkan) instead of VulkanZink.",
-                        "If you specifically need Zink, wait for a TurtleLauncher build with an updated libOSMesa_8.so that exports this symbol.",
+                        "If you specifically need Zink, wait for a AeroLauncher build with an updated libOSMesa_8.so that exports this symbol.",
                         "Try the Auto Graphics Optimizer (Settings → Video) so the launcher picks a renderer your GPU/driver actually supports."
                     ),
                     Severity.WARNING,
@@ -235,8 +235,8 @@ object CrashAnalyzer {
                         "If that directory points at the app's read-only APK lib folder instead of a writable cache " +
                         "folder, every mkdir call throws AccessDeniedException and the game can't start.",
                     listOf(
-                        "Update to the latest TurtleLauncher build, which always points the natives directory at a writable per-version cache folder.",
-                        "Clear the app's cache below, or via Android Settings → Apps → TurtleLauncher → Storage → Clear Cache, and relaunch.",
+                        "Update to the latest AeroLauncher build, which always points the natives directory at a writable per-version cache folder.",
+                        "Clear the app's cache below, or via Android Settings → Apps → AeroLauncher → Storage → Clear Cache, and relaunch.",
                         "Make sure you're not running from a read-only/sandboxed storage location (e.g. some custom ROM \"app cloning\" features)."
                     ),
                     repairActions = listOf(
@@ -288,7 +288,7 @@ object CrashAnalyzer {
                     "A class file was compiled for a newer Java version than the runtime currently selected for this " +
                         "Minecraft version supports.",
                     listOf(
-                        "Let TurtleLauncher auto-pick the Java runtime, or manually select a newer one in the version's Java settings (Java 17/21/25 depending on the Minecraft version).",
+                        "Let AeroLauncher auto-pick the Java runtime, or manually select a newer one in the version's Java settings (Java 17/21/25 depending on the Minecraft version).",
                         "If you just updated Minecraft/a modpack, delete the version's cached Java selection so it re-resolves the requirement."
                     ),
                     repairActions = listOf(RepairAction(RepairActionType.REPAIR_RUNTIME, "Repair Java runtime"))
@@ -340,7 +340,7 @@ object CrashAnalyzer {
                     "A mod declares another mod as a mandatory dependency, but that dependency isn't present (or its " +
                         "version doesn't satisfy what's required).",
                     listOf(
-                        "TurtleLauncher's automatic dependency installer will try to fetch common missing dependencies from Modrinth the next time you launch this version.",
+                        "AeroLauncher's automatic dependency installer will try to fetch common missing dependencies from Modrinth the next time you launch this version.",
                         "If it can't be auto-resolved, check the error for the missing mod's name/ID and install it manually into the mods folder.",
                         "Make sure the dependency's version matches what the dependent mod expects (don't mix Minecraft versions)."
                     )
@@ -374,7 +374,7 @@ object CrashAnalyzer {
                         "Switch renderer: try Vulkan-Zink instead of OpenGL ES (or vice-versa) in Settings → Video.",
                         "Enable the Auto Graphics Optimizer so the launcher picks a renderer/driver combo known to work on your GPU.",
                         "Lower resolution scale, which reduces load on the driver and can avoid some driver crash conditions.",
-                        "Update TurtleLauncher — PowerVR-specific renderer fixes are an active area of work."
+                        "Update AeroLauncher — PowerVR-specific renderer fixes are an active area of work."
                     ),
                     Severity.WARNING,
                     repairActions = listOf(RepairAction(RepairActionType.RESET_RENDERER_OVERRIDE, "Reset renderer override"))
@@ -442,7 +442,7 @@ object CrashAnalyzer {
                         listOf(
                             "If this started after adding a mod, remove the most recently added mod and try again.",
                             "Double-check every mod matches both the Minecraft version and the mod loader (Fabric/Forge/NeoForge/Quilt) you're using.",
-                            "TurtleLauncher's automatic dependency installer will try to fetch common missing dependencies on the next launch."
+                            "AeroLauncher's automatic dependency installer will try to fetch common missing dependencies on the next launch."
                         )
                     )
                 }
@@ -555,7 +555,7 @@ object CrashAnalyzer {
                         "OpenSL ES backend (\"opensl\"). Requesting a non-existent backend (e.g. \"android\") " +
                         "results in \"No playback backend available!\" and complete silence on every version.",
                     listOf(
-                        "Update to the latest TurtleLauncher build — the ALSOFT_DRIVERS=opensl fix is now applied automatically on every launch (the previous \"android\" value requested a backend this build doesn't contain).",
+                        "Update to the latest AeroLauncher build — the ALSOFT_DRIVERS=opensl fix is now applied automatically on every launch (the previous \"android\" value requested a backend this build doesn't contain).",
                         "If sound is still silent (no crash, just no audio): check that your device's media volume isn't at zero, that no other app is holding exclusive audio focus, and that the in-game master volume (options.txt soundCategory_master) isn't 0.0.",
                         "If the launcher log shows 'Failed to pre-load libopenal.so': reinstall the APK to ensure native libraries are present.",
                         "If log shows 'Failed to initialize backend \"opensl\"' or 'Failed to initialize OpenSL device': your device's OpenSL ES driver may be broken — try a different device or a newer Android version."
@@ -1020,7 +1020,7 @@ object CrashAnalyzer {
      * Ported: if [diagnoses] is *only* the generic "no specific known cause matched" fallback,
      * ask [AiCrashAdvisor] for a suggestion and append it. Never called when a real rule (or a
      * mod-conflict finding) already explains the crash — the AI is strictly a last resort for
-     * when TurtleLauncher's own knowledge base genuinely doesn't know what happened.
+     * when AeroLauncher's own knowledge base genuinely doesn't know what happened.
      */
     private fun withAiFallback(diagnoses: List<Diagnosis>, fullLogText: String): List<Diagnosis> {
         val isOnlyGenericFallback = diagnoses.size == 1 &&
@@ -1030,7 +1030,7 @@ object CrashAnalyzer {
         val aiSuggestion = runCatching { AiCrashAdvisor.getSuggestion(fullLogText) }.getOrNull() ?: return diagnoses
         return diagnoses + Diagnosis(
             title = "AI-suggested fix (experimental)",
-            cause = "None of TurtleLauncher's known crash patterns matched, so this suggestion came from the " +
+            cause = "None of AeroLauncher's known crash patterns matched, so this suggestion came from the " +
                 "AI crash helper you enabled in Settings — double-check it before relying on it.",
             fixSteps = listOf(aiSuggestion),
             severity = Severity.INFO
@@ -1058,7 +1058,7 @@ object CrashAnalyzer {
                     // Must match the exact same key LaunchArgs.resolveNativeLibraryPath() uses
                     // for java.library.path (versionName, i.e. the version folder name) — NOT
                     // Version.getVersionInfo().id, which is a different, unrelated field on
-                    // TurtleLauncher's own VersionInfo model (minecraftVersion/loaderInfo only).
+                    // AeroLauncher's own VersionInfo model (minecraftVersion/loaderInfo only).
                     val versionId = gameVersion?.getVersionName()
                     if (versionId == null) {
                         RepairResult(false, "No active game version to clear the natives cache for.")
@@ -1271,7 +1271,7 @@ object CrashAnalyzer {
             val stamp = java.text.SimpleDateFormat("yyyyMMdd_HHmmss", java.util.Locale.US).format(java.util.Date())
             val file = File(dir, "crash_diagnostics_$stamp.txt")
             file.writeText(buildString {
-                appendLine("TurtleLauncher Crash Diagnostics Export")
+                appendLine("AeroLauncher Crash Diagnostics Export")
                 appendLine("Generated: ${java.util.Date()}")
                 appendLine("Android: ${android.os.Build.VERSION.RELEASE} (SDK ${android.os.Build.VERSION.SDK_INT})")
                 appendLine("Device: ${android.os.Build.MANUFACTURER} ${android.os.Build.MODEL}")
@@ -1298,7 +1298,7 @@ object CrashAnalyzer {
     /** Builds a search query for [diagnosis] aimed at surfacing known fixes for this exact issue. */
     @JvmStatic
     fun onlineSearchQuery(diagnosis: Diagnosis): String =
-        "${diagnosis.title} Minecraft Android TurtleLauncher fix"
+        "${diagnosis.title} Minecraft Android AeroLauncher fix"
 
     /**
      * Builds a ready-to-open web search URL for [diagnosis]. The UI is responsible for

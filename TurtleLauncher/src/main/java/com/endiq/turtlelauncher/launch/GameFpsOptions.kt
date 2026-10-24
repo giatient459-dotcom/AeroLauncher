@@ -30,7 +30,7 @@ object GameFpsOptions {
                 edits[key] = value
             }
             // Write rollback data first; a failed backup must never modify Minecraft's file.
-            backup.writer().use { state.store(it, "TurtleLauncher FPS rollback values") }
+            backup.writer().use { state.store(it, "AeroLauncher FPS rollback values") }
         } else {
             overrides.forEach { (key, applied) ->
                 val saved = state.getProperty(key)

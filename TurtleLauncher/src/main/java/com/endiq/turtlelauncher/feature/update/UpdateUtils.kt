@@ -82,7 +82,9 @@ class UpdateUtils {
         }
 
         // Real releases page, tags are vX.Y.Z.W (e.g. v1.0.0.3) - see pickLatestRelease().
-        private const val RELEASES_API_URL = "https://api.github.com/repos/Endiq-jar/TurtleLauncher/releases"
+        // Points at the AeroLauncher repository: the upstream feed must never be used,
+        // or the update flow would offer the original TurtleLauncher build.
+        private const val RELEASES_API_URL = "https://api.github.com/repos/giatient459-dotcom/AeroLauncher/releases"
         private val DOTTED_VERSION_REGEX = Regex("^\\d+(\\.\\d+)*$")
 
         @Synchronized

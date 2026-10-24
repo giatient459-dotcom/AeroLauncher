@@ -16,7 +16,7 @@ import java.util.List;
  *
  * IMPORTANT CAVEAT (from Cleanroom's own README, not guessed): "Only MultiMC-based
  * launchers are officially supported... because of the limit on removing vanilla
- * libraries in other launchers." TurtleLauncher is not MultiMC-based. This class
+ * libraries in other launchers." AeroLauncher is not MultiMC-based. This class
  * downloads the real installer jar Cleanroom publishes, but whether that installer
  * actually runs correctly through this launcher's install pipeline is UNVERIFIED -
  * Cleanroom's own docs describe this installer-jar path as a fallback that's mainly

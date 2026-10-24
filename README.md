@@ -2,7 +2,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:050D08,20:0B2615,45:14532D,70:16A34A,100:86EFAC&height=280&section=header&text=AeroLauncher&fontSize=62&fontColor=FFFFFF&fontAlign=50&fontAlignY=35&animation=fadeIn&desc=MINECRAFT%20JAVA%20EDITION%20%E2%80%A2%20ANDROID&descSize=16&descAlign=50&descAlignY=56" width="100%" alt="AeroLauncher — Minecraft Java Edition for Android" />
 </p>
 
-<h1 align="center">🚀 AeroLauncher</h1>
+<h1 align="center">✈️ AeroLauncher</h1>
 
 <p align="center">
   <strong>Your Minecraft. Your Device. Your Freedom.</strong>
@@ -13,30 +13,30 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/releases">
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/releases">
     <img src="https://img.shields.io/badge/⬇_DOWNLOAD-LATEST_RELEASE-16A34A?style=for-the-badge&logo=android&logoColor=white" alt="Download AeroLauncher" />
   </a>
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/issues/new/choose">
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/issues/new/choose">
     <img src="https://img.shields.io/badge/🐛_REPORT-A_BUG-202820?style=for-the-badge&logo=github&logoColor=4ADE80" alt="Report a bug" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/downloads/Endiq-jar/TurtleLauncher/total?style=flat-square&logo=github&label=Downloads&color=16A34A" alt="Total downloads" />
-  <img src="https://img.shields.io/github/v/release/Endiq-jar/TurtleLauncher?style=flat-square&logo=github&label=Release&color=22C55E" alt="Latest release" />
-  <img src="https://img.shields.io/github/stars/Endiq-jar/TurtleLauncher?style=flat-square&logo=github&label=Stars&color=4ADE80" alt="GitHub stars" />
-  <img src="https://img.shields.io/github/forks/Endiq-jar/TurtleLauncher?style=flat-square&logo=git&label=Forks&color=15803D" alt="GitHub forks" />
+  <img src="https://img.shields.io/github/downloads/giatient459-dotcom/AeroLauncher/total?style=flat-square&logo=github&label=Downloads&color=16A34A" alt="Total downloads" />
+  <img src="https://img.shields.io/github/v/release/Endiq-jar/AeroLauncher?style=flat-square&logo=github&label=Release&color=22C55E" alt="Latest release" />
+  <img src="https://img.shields.io/github/stars/Endiq-jar/AeroLauncher?style=flat-square&logo=github&label=Stars&color=4ADE80" alt="GitHub stars" />
+  <img src="https://img.shields.io/github/forks/Endiq-jar/AeroLauncher?style=flat-square&logo=git&label=Forks&color=15803D" alt="GitHub forks" />
   <br />
-  <img src="https://img.shields.io/github/license/Endiq-jar/TurtleLauncher?style=flat-square&label=License&color=16A34A" alt="License" />
+  <img src="https://img.shields.io/github/license/Endiq-jar/AeroLauncher?style=flat-square&label=License&color=16A34A" alt="License" />
   <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Android platform" />
-  <img src="https://img.shields.io/github/last-commit/Endiq-jar/TurtleLauncher?style=flat-square&logo=github&label=Last%20commit&color=166534" alt="Last commit" />
+  <img src="https://img.shields.io/github/last-commit/Endiq-jar/AeroLauncher?style=flat-square&logo=github&label=Last%20commit&color=166534" alt="Last commit" />
 </p>
 
 <p align="center">
   <a href="https://github.com/Endiq-jar">
-    <img src="https://img.shields.io/badge/DEVELOPER-ENDIQ-166534?style=for-the-badge&logo=github&logoColor=white" alt="Developer Endiq" />
+    <img src="https://img.shields.io/badge/UPSTREAM_AUTHOR-ENDIQ-166534?style=for-the-badge&logo=github&logoColor=white" alt="Upstream author Endiq" />
   </a>
-  <a href="https://github.com/Endiq-jar/TurtleLauncher">
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher">
     <img src="https://img.shields.io/badge/OPEN_SOURCE-22C55E?style=for-the-badge&logo=github&logoColor=white" alt="Open source repository" />
   </a>
 </p>
@@ -54,7 +54,7 @@
 ## ✦ Navigation
 
 <p align="center">
-  <a href="#-about-turtlelauncher">About</a> ·
+  <a href="#-about-aerolauncher">About</a> ·
   <a href="#-features">Features</a> ·
   <a href="#%EF%B8%8F-screenshots">Screenshot</a> ·
   <a href="#-installation">Installation</a>
@@ -69,7 +69,15 @@
 
 ## 🌿 About AeroLauncher
 
-AeroLauncher is an Android launcher for **Minecraft: Java Edition**, developed by **[Endiq](https://github.com/Endiq-jar)**.
+AeroLauncher is an Android launcher for **Minecraft: Java Edition**. It is a rebranded fork of the
+open-source **[TurtleLauncher](https://github.com/Endiq-jar/TurtleLauncher)** project, originally
+developed by **[Endiq](https://github.com/Endiq-jar)**, and is maintained in this repository.
+
+> **Attribution.** AeroLauncher is distributed under the GPL-3.0, as the upstream project is. The
+> Java/Kotlin package (`com.endiq.turtlelauncher`), the `applicationId`, the on-disk data directory
+> (`games/TurtleLauncher`) and the native/JNI symbols keep their original TurtleLauncher names: they
+> are compatibility identifiers, not branding, and changing them would orphan existing installs.
+> Upstream authorship of the original code is fully acknowledged.
 
 Inspired by the possibilities of open-source Minecraft launchers, AeroLauncher aims to bring a customizable, feature-rich Java Edition experience to Android devices.
 
@@ -228,7 +236,7 @@ The in-game Dark Mode resource pack is intended to darken supported menus, butto
 
 ### Option 1 — Download a release
 
-1. Open the [AeroLauncher Releases](https://github.com/Endiq-jar/TurtleLauncher/releases) page.
+1. Open the [AeroLauncher Releases](https://github.com/giatient459-dotcom/AeroLauncher/releases) page.
 2. Select the release you want to install.
 3. Download the APK asset provided by that release.
 4. Open the downloaded APK on your Android device.
@@ -240,7 +248,7 @@ Only install APKs from sources you trust. Review release notes and verify availa
 
 Developers can explore the repository and its build configuration:
 
-1. Open the [AeroLauncher repository](https://github.com/Endiq-jar/TurtleLauncher).
+1. Open the [AeroLauncher repository](https://github.com/giatient459-dotcom/AeroLauncher).
 2. Read the project's build instructions and Gradle configuration.
 3. Install the required Android development tools and compatible JDK.
 4. Build using the project's documented Gradle tasks.
@@ -381,7 +389,7 @@ These are development goals, not guarantees of a particular FPS, launch time, te
   - Steps to reproduce the problem.
   - Relevant launch or crash logs.
 
-  **[Open GitHub Issues →](https://github.com/Endiq-jar/TurtleLauncher/issues)**
+  **[Open GitHub Issues →](https://github.com/giatient459-dotcom/AeroLauncher/issues)**
 
 </details>
 
@@ -412,10 +420,10 @@ Contributions, bug reports, compatibility reports, documentation improvements, a
 Please keep changes focused and include relevant testing information where possible.
 
 <p align="center">
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/issues">
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/issues">
     <img src="https://img.shields.io/badge/REPORT_A_BUG-166534?style=for-the-badge&logo=github" alt="Report a bug" />
   </a>
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/network/members">
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/network/members">
     <img src="https://img.shields.io/badge/CONTRIBUTE-22C55E?style=for-the-badge&logo=git" alt="Contribute" />
   </a>
 </p>
@@ -426,7 +434,7 @@ Please keep changes focused and include relevant testing information where possi
 
 AeroLauncher is identified in this project's documentation as licensed under **GNU General Public License v3.0 (GPL-3.0)**.
 
-See the repository's [`LICENSE`](https://github.com/Endiq-jar/TurtleLauncher) file for the exact license terms.
+See the repository's [`LICENSE`](https://github.com/giatient459-dotcom/AeroLauncher) file for the exact license terms.
 
 ---
 
@@ -436,7 +444,7 @@ AeroLauncher builds on ideas, technologies, and open-source work from the Minecr
 
 Projects and technologies acknowledged by this README include:
 
-- AeroLauncher.
+- TurtleLauncher — the upstream project AeroLauncher is forked from.
 - HMCL.
 - Boardwalk.
 - OpenJDK.
@@ -478,18 +486,18 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
 </p>
 
 <p align="center">
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/stargazers">
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/stargazers">
     <img src="https://img.shields.io/badge/⭐_STAR-HELP_US_GROW-166534?style=for-the-badge&logo=github" alt="Star AeroLauncher" />
   </a>
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/releases">
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/releases">
     <img src="https://img.shields.io/badge/⚔️_YOUR_ADVENTURE-DOWNLOAD-22C55E?style=for-the-badge&logo=android" alt="Download AeroLauncher" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/issues">Report a bug</a>
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/issues">Report a bug</a>
   ·
-  <a href="https://github.com/Endiq-jar/TurtleLauncher/network/members">Contribute</a>
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/network/members">Contribute</a>
   ·
   <a href="https://github.com/Endiq-jar">More projects by Endiq</a>
 </p>
@@ -498,7 +506,7 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:14532D,50:22C55E,100:86EFAC&height=3&section=footer" width="80%" alt="" />
 </p>
 
-<h2 align="center">🐢 Thanks for visiting AeroLauncher!</h2>
+<h2 align="center">✈️ Thanks for visiting AeroLauncher!</h2>
 
 <p align="center">
   <strong>One launcher. Endless possibilities.</strong>
@@ -507,15 +515,16 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
 
 <p align="center">
   <sub>
-    Made with 💚 by <a href="https://github.com/Endiq-jar">Endiq</a>
-    and the open-source community.
+    Upstream code by <a href="https://github.com/giatient459-dotcom">giatient459-dotcom</a>,
+    rebranded and maintained as AeroLauncher in this fork,
+    with the open-source community.
   </sub>
   <br />
   <sub>Open source · Android · Minecraft Java Edition</sub>
 </p>
 
 <p align="center">
-  <a href="#turtlelauncher">
+  <a href="#aerolauncher">
     <img src="https://img.shields.io/badge/⬆_BACK_TO_TOP-RETURN_TO_THE_BEGINNING-14532D?style=for-the-badge" alt="Back to top" />
   </a>
 </p>

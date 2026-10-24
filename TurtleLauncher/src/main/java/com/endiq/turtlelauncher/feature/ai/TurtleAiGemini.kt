@@ -13,7 +13,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.concurrent.TimeUnit
 
 /**
- * Every call Turtle AI makes to Google's Gemini API.
+ * Every call Aero AI makes to Google's Gemini API.
  *
  * One client for all the launcher's AI work - chat, vision (the skin/cape filter), image
  * generation, video generation, speech and transcription - because they differ in their prompt
@@ -196,7 +196,7 @@ object TurtleAiGemini {
             append("Question: ").append(question.trim())
             if (!localAnswer.isNullOrBlank()) {
                 append("\n\nThis launcher's own verified answer to that question (authoritative for ")
-                append("anything about Turtle Launcher; translate or rephrase it as needed, and do ")
+                append("anything about AeroLauncher; translate or rephrase it as needed, and do ")
                 append("not contradict it):\n")
                 append(localAnswer.trim())
             }
@@ -872,7 +872,7 @@ object TurtleAiGemini {
             val builder = UrlManager.createRequestBuilder(url, requestBody)
                 .header("x-goog-api-key", key)
                 .header("Accept", "application/json")
-                .addHeader("User-Agent", "TurtleLauncher-TurtleAI/1.0")
+                .addHeader("User-Agent", "AeroLauncher-AeroAI/1.0")
             val client = UrlManager
                 .createOkHttpClientBuilder {
                     it.callTimeout(timeoutSeconds, TimeUnit.SECONDS)
@@ -942,7 +942,7 @@ object TurtleAiGemini {
     private fun downloadFile(url: String, key: String): ByteArray? = runCatching {
         val request = UrlManager.createRequestBuilder(url)
             .header("x-goog-api-key", key)
-            .addHeader("User-Agent", "TurtleLauncher-TurtleAI/1.0")
+            .addHeader("User-Agent", "AeroLauncher-AeroAI/1.0")
             .build()
         val client = UrlManager
             .createOkHttpClientBuilder {
