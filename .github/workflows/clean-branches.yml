@@ -1,0 +1,71 @@
+name: Clean Merged Branches
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clean-merged-branches-main
+  cancel-in-progress: false
+
+jobs:
+  clean-merged-branches:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout full Git history
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Delete branches already merged into main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin --prune
+
+          # Only consider remote branches whose tip is already an ancestor of origin/main.
+          # Always preserve main and the symbolic origin/HEAD reference.
+          mapfile -t merged_refs < <(
+            git for-each-ref --format='%(refname:short)' --merged=origin/main refs/remotes/origin |
+              grep -vE '^origin/(main|HEAD)$' || true
+          )
+
+          if [ "${#merged_refs[@]}" -eq 0 ]; then
+            echo "No merged secondary branches to delete."
+            exit 0
+          fi
+
+          for ref in "${merged_refs[@]}"; do
+            branch="${ref#origin/}"
+
+            # Ask GitHub whether the branch is protected; never try to delete protected refs.
+            encoded_branch="${branch//\//%2F}"
+            if ! branch_json="$(gh api "repos/${GH_REPO}/branches/${encoded_branch}" 2>/dev/null)"; then
+              echo "::warning::Could not inspect ${branch}; leaving it untouched."
+              continue
+            fi
+            protected="$(printf '%s' "$branch_json" | python3 -c 'import json,sys; print(str(json.load(sys.stdin).get("protected", False)).lower())')"
+            if [ "$protected" = "true" ]; then
+              echo "Skipping protected branch: ${branch}"
+              continue
+            fi
+
+            # Re-check ancestry immediately before deletion; unmerged branches are never deleted.
+            if git merge-base --is-ancestor "origin/${branch}" origin/main; then
+              echo "Deleting merged branch: ${branch}"
+              gh api --method DELETE "repos/${GH_REPO}/git/refs/heads/${encoded_branch}"
+            else
+              echo "Skipping unmerged branch: ${branch}"
+            fi
+          done
