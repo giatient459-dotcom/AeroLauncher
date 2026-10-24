@@ -1044,6 +1044,19 @@ object CrashAnalyzer {
     private const val RAM_STEP_MB = 1024
 
     /**
+     * Canonical, path-component-aware boundary check for DELETE_FILE repair actions.
+     * File.path.startsWith(root.path) is unsafe here: sibling paths such as
+     * /games/TurtleLauncher-old also start with /games/TurtleLauncher as strings.
+     * Canonical paths additionally prevent symlink-based escapes.
+     */
+    @JvmStatic
+    internal fun isSafeRepairTarget(gameRoot: File, candidate: File): Boolean = runCatching {
+        val rootPath = gameRoot.canonicalFile.toPath()
+        val targetPath = candidate.canonicalFile.toPath()
+        targetPath != rootPath && targetPath.startsWith(rootPath)
+    }.getOrDefault(false)
+
+    /**
      * Actually performs [action] (as opposed to the [Diagnosis.fixSteps] text, which only
      * describes what to do). [gameVersion] is required for version-scoped actions
      * (clearing natives cache, resetting a renderer override) and can be null for
@@ -1101,9 +1114,9 @@ object CrashAnalyzer {
                         val file = File(path)
                         // Safety: only ever delete files inside the launcher's own game folder —
                         // never something a matched path outside it might point at.
-                        val gameRoot = File(PathManager.DIR_GAME_HOME).canonicalFile
+                        val gameRoot = File(PathManager.DIR_GAME_HOME)
                         val target = runCatching { file.canonicalFile }.getOrNull()
-                        if (target == null || !target.path.startsWith(gameRoot.path)) {
+                        if (target == null || !isSafeRepairTarget(gameRoot, target)) {
                             RepairResult(false, "Refused to delete a file outside the game folder: $path")
                         } else if (!target.exists()) {
                             RepairResult(false, "That file no longer exists — it may already have been removed.")
