@@ -1338,7 +1338,7 @@
     <string name="discord_rpc_preview_button_hidden">hidden - needs both a label and a valid link</string>
     <string name="music_delete_track">Remove</string>
 
-<string name="whats_new_title">🚀 What's New in AeroLauncher</string>
+<string name="whats_new_title">🚀 What\'s New in AeroLauncher</string>
     <string name="whats_new_version">v3.1</string>
     <string name="whats_new_feature_1">🎭 Emotes: dependencies install themselves</string>
     <string name="whats_new_feature_1_desc">Installing the Emotecraft mod now automatically fetches its required Player Animation Library dependency (read straight from the mod\'s own metadata), so the game no longer crashes on launch with a missing-dependency error.</string>
