@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:050D08,20:0B2615,45:14532D,70:16A34A,100:86EFAC&height=280&section=header&text=AeroLauncher&fontSize=62&fontColor=FFFFFF&fontAlign=50&fontAlignY=35&animation=fadeIn&desc=MINECRAFT%20JAVA%20EDITION%20%E2%80%A2%20ANDROID&descSize=16&descAlign=50&descAlignY=56" width="100%" alt="AeroLauncher — Minecraft Java Edition for Android" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:050B18,20:0A1B33,45:0B3A66,70:00B8D9,100:7DEBFF&height=280&section=header&text=AeroLauncher&fontSize=62&fontColor=FFFFFF&fontAlign=50&fontAlignY=35&animation=fadeIn&desc=MINECRAFT%20JAVA%20EDITION%20%E2%80%A2%20ANDROID&descSize=16&descAlign=50&descAlignY=56" width="100%" alt="AeroLauncher — Minecraft Java Edition for Android" />
 </p>
 
 <h1 align="center">✈️ AeroLauncher</h1>
@@ -14,35 +14,35 @@
 
 <p align="center">
   <a href="https://github.com/giatient459-dotcom/AeroLauncher/releases">
-    <img src="https://img.shields.io/badge/⬇_DOWNLOAD-LATEST_RELEASE-16A34A?style=for-the-badge&logo=android&logoColor=white" alt="Download AeroLauncher" />
+    <img src="https://img.shields.io/badge/⬇_DOWNLOAD-LATEST_RELEASE-00B8D9?style=for-the-badge&logo=android&logoColor=white" alt="Download AeroLauncher" />
   </a>
-  <a href="https://github.com/giatient459-dotcom/AeroLauncher/issues/new/choose">
-    <img src="https://img.shields.io/badge/🐛_REPORT-A_BUG-202820?style=for-the-badge&logo=github&logoColor=4ADE80" alt="Report a bug" />
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/pulls">
+    <img src="https://img.shields.io/badge/🐛_REPORT-A_BUG-0B1F3A?style=for-the-badge&logo=github&logoColor=58D9FF" alt="Report a bug through pull requests" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/downloads/giatient459-dotcom/AeroLauncher/total?style=flat-square&logo=github&label=Downloads&color=16A34A" alt="Total downloads" />
-  <img src="https://img.shields.io/github/v/release/Endiq-jar/AeroLauncher?style=flat-square&logo=github&label=Release&color=22C55E" alt="Latest release" />
-  <img src="https://img.shields.io/github/stars/Endiq-jar/AeroLauncher?style=flat-square&logo=github&label=Stars&color=4ADE80" alt="GitHub stars" />
-  <img src="https://img.shields.io/github/forks/Endiq-jar/AeroLauncher?style=flat-square&logo=git&label=Forks&color=15803D" alt="GitHub forks" />
+  <img src="https://img.shields.io/github/downloads/giatient459-dotcom/AeroLauncher/total?style=flat-square&logo=github&label=Downloads&color=00B8D9" alt="Total downloads" />
+  <img src="https://img.shields.io/github/v/release/giatient459-dotcom/AeroLauncher?style=flat-square&logo=github&label=Release&color=168BFF" alt="Latest release" />
+  <img src="https://img.shields.io/github/stars/giatient459-dotcom/AeroLauncher?style=flat-square&logo=github&label=Stars&color=58D9FF" alt="GitHub stars" />
+  <img src="https://img.shields.io/github/forks/giatient459-dotcom/AeroLauncher?style=flat-square&logo=git&label=Forks&color=1266B3" alt="GitHub forks" />
   <br />
-  <img src="https://img.shields.io/github/license/Endiq-jar/AeroLauncher?style=flat-square&label=License&color=16A34A" alt="License" />
-  <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Android platform" />
-  <img src="https://img.shields.io/github/last-commit/Endiq-jar/AeroLauncher?style=flat-square&logo=github&label=Last%20commit&color=166534" alt="Last commit" />
+  <img src="https://img.shields.io/github/license/giatient459-dotcom/AeroLauncher?style=flat-square&label=License&color=00B8D9" alt="License" />
+  <img src="https://img.shields.io/badge/Platform-Android-00C8F0?style=flat-square&logo=android&logoColor=white" alt="Android platform" />
+  <img src="https://img.shields.io/github/last-commit/giatient459-dotcom/AeroLauncher?style=flat-square&logo=github&label=Last%20commit&color=1266B3" alt="Last commit" />
 </p>
 
 <p align="center">
   <a href="https://github.com/Endiq-jar">
-    <img src="https://img.shields.io/badge/UPSTREAM_AUTHOR-ENDIQ-166534?style=for-the-badge&logo=github&logoColor=white" alt="Upstream author Endiq" />
+    <img src="https://img.shields.io/badge/UPSTREAM_AUTHOR-ENDIQ-1266B3?style=for-the-badge&logo=github&logoColor=white" alt="Upstream author Endiq" />
   </a>
   <a href="https://github.com/giatient459-dotcom/AeroLauncher">
-    <img src="https://img.shields.io/badge/OPEN_SOURCE-22C55E?style=for-the-badge&logo=github&logoColor=white" alt="Open source repository" />
+    <img src="https://img.shields.io/badge/OPEN_SOURCE-168BFF?style=for-the-badge&logo=github&logoColor=white" alt="Open source repository" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:14532D,50:22C55E,100:86EFAC&height=3&section=header" width="70%" alt="" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B3A66,50:168BFF,100:7DEBFF&height=3&section=header" width="70%" alt="" />
 </p>
 
 <p align="center">
@@ -330,7 +330,7 @@ These are development goals, not guarantees of a particular FPS, launch time, te
 <details>
   <summary><strong>🛡️ Is AeroLauncher safe?</strong></summary>
 
-  AeroLauncher is an open-source project. You can inspect its source code and report potential security issues through GitHub. No software can be guaranteed completely risk-free.
+  AeroLauncher is an open-source project. You can inspect its source code and review its source and propose fixes through pull requests. Avoid publishing sensitive vulnerability details in public pull requests. No software can be guaranteed completely risk-free.
 
   Download releases only from sources you trust.
 
@@ -381,7 +381,7 @@ These are development goals, not guarantees of a particular FPS, launch time, te
 <details>
   <summary><strong>🐛 Where can I report bugs?</strong></summary>
 
-  Open an issue on GitHub and include:
+  Open a pull request with a reproducible bug report and include:
 
   - Your Android version and device architecture.
   - The Minecraft version and Java runtime.
@@ -389,7 +389,7 @@ These are development goals, not guarantees of a particular FPS, launch time, te
   - Steps to reproduce the problem.
   - Relevant launch or crash logs.
 
-  **[Open GitHub Issues →](https://github.com/giatient459-dotcom/AeroLauncher/issues)**
+  **[Open a pull request →](https://github.com/giatient459-dotcom/AeroLauncher/pulls)**
 
 </details>
 
@@ -420,11 +420,11 @@ Contributions, bug reports, compatibility reports, documentation improvements, a
 Please keep changes focused and include relevant testing information where possible.
 
 <p align="center">
-  <a href="https://github.com/giatient459-dotcom/AeroLauncher/issues">
-    <img src="https://img.shields.io/badge/REPORT_A_BUG-166534?style=for-the-badge&logo=github" alt="Report a bug" />
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/pulls">
+    <img src="https://img.shields.io/badge/REPORT_A_BUG-1266B3?style=for-the-badge&logo=github" alt="Report a bug through pull requests" />
   </a>
   <a href="https://github.com/giatient459-dotcom/AeroLauncher/network/members">
-    <img src="https://img.shields.io/badge/CONTRIBUTE-22C55E?style=for-the-badge&logo=git" alt="Contribute" />
+    <img src="https://img.shields.io/badge/CONTRIBUTE-168BFF?style=for-the-badge&logo=git" alt="Contribute" />
   </a>
 </p>
 
@@ -434,7 +434,7 @@ Please keep changes focused and include relevant testing information where possi
 
 AeroLauncher is identified in this project's documentation as licensed under **GNU General Public License v3.0 (GPL-3.0)**.
 
-See the repository's [`LICENSE`](https://github.com/giatient459-dotcom/AeroLauncher) file for the exact license terms.
+See the repository's [`LICENSE`](https://github.com/giatient459-dotcom/AeroLauncher/blob/main/LICENSE) file for the exact license terms.
 
 ---
 
@@ -487,15 +487,15 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
 
 <p align="center">
   <a href="https://github.com/giatient459-dotcom/AeroLauncher/stargazers">
-    <img src="https://img.shields.io/badge/⭐_STAR-HELP_US_GROW-166534?style=for-the-badge&logo=github" alt="Star AeroLauncher" />
+    <img src="https://img.shields.io/badge/⭐_STAR-HELP_US_GROW-1266B3?style=for-the-badge&logo=github" alt="Star AeroLauncher" />
   </a>
   <a href="https://github.com/giatient459-dotcom/AeroLauncher/releases">
-    <img src="https://img.shields.io/badge/⚔️_YOUR_ADVENTURE-DOWNLOAD-22C55E?style=for-the-badge&logo=android" alt="Download AeroLauncher" />
+    <img src="https://img.shields.io/badge/⚔️_YOUR_ADVENTURE-DOWNLOAD-168BFF?style=for-the-badge&logo=android" alt="Download AeroLauncher" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/giatient459-dotcom/AeroLauncher/issues">Report a bug</a>
+  <a href="https://github.com/giatient459-dotcom/AeroLauncher/pulls">Report a bug via pull request</a>
   ·
   <a href="https://github.com/giatient459-dotcom/AeroLauncher/network/members">Contribute</a>
   ·
@@ -503,7 +503,7 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:14532D,50:22C55E,100:86EFAC&height=3&section=footer" width="80%" alt="" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B3A66,50:168BFF,100:7DEBFF&height=3&section=footer" width="80%" alt="" />
 </p>
 
 <h2 align="center">✈️ Thanks for visiting AeroLauncher!</h2>
@@ -515,8 +515,8 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
 
 <p align="center">
   <sub>
-    Upstream code by <a href="https://github.com/giatient459-dotcom">giatient459-dotcom</a>,
-    rebranded and maintained as AeroLauncher in this fork,
+    Originally based on <a href="https://github.com/Endiq-jar/TurtleLauncher">TurtleLauncher</a> by <a href="https://github.com/Endiq-jar">Endiq</a>,
+    rebranded and maintained as AeroLauncher by <a href="https://github.com/giatient459-dotcom">giatient459-dotcom</a>,
     with the open-source community.
   </sub>
   <br />
@@ -525,10 +525,10 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
 
 <p align="center">
   <a href="#aerolauncher">
-    <img src="https://img.shields.io/badge/⬆_BACK_TO_TOP-RETURN_TO_THE_BEGINNING-14532D?style=for-the-badge" alt="Back to top" />
+    <img src="https://img.shields.io/badge/⬆_BACK_TO_TOP-RETURN_TO_THE_BEGINNING-0B3A66?style=for-the-badge" alt="Back to top" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:86EFAC,35:22C55E,70:14532D,100:050D08&height=160&section=footer" width="100%" alt="" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7DEBFF,35:168BFF,70:0B3A66,100:050B18&height=160&section=footer" width="100%" alt="" />
 </p>
