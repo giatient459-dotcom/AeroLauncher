@@ -161,7 +161,7 @@
                     android:layout_gravity="center"
                     android:visibility="gone"/>
 
-                <!-- TurtleLauncher NESTED-SCROLL FIX: this WebView sits inside the outer
+                <!-- AeroLauncher NESTED-SCROLL FIX: this WebView sits inside the outer
                      NestedScrollView above (see that view's own comment), and WebView does
                      not implement NestedScrollingChild - Android's nested-scroll dispatch
                      between it and a NestedScrollView is heuristic and unreliable, so a

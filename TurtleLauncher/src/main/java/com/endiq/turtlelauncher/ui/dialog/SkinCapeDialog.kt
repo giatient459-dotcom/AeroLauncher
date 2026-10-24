@@ -189,7 +189,7 @@ class SkinCapeDialog(
             TurtleSkinServer.ensureStarted(true)
             val instructions = TurtleSkinServer.lanInstructions()
             val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            clipboard.setPrimaryClip(ClipData.newPlainText("TurtleLauncher skin server", instructions))
+            clipboard.setPrimaryClip(ClipData.newPlainText("AeroLauncher skin server", instructions))
             Toast.makeText(context, R.string.skin_cape_instructions_copied, Toast.LENGTH_SHORT).show()
         }
     }

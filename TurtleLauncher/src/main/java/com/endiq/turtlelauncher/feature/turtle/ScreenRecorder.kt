@@ -333,7 +333,7 @@ object ScreenRecorder {
                     throw IOException("Cannot create recordings directory in either location")
                 }
             }
-            val file = File(actualDir, "turtle_${nameFormat.format(Date())}.mp4")
+            val file = File(actualDir, "aero_${nameFormat.format(Date())}.mp4")
             Logging.i(TAG, "Recording to: ${file.absolutePath}")
             outputFile = file
             recordingContext = activity.applicationContext
@@ -1150,7 +1150,9 @@ object ScreenRecorder {
                 put(MediaStore.MediaColumns.DISPLAY_NAME, videoFile.name)
                 put(MediaStore.MediaColumns.MIME_TYPE, "video/mp4")
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    put(MediaStore.MediaColumns.RELATIVE_PATH, "Movies/TurtleLauncher")
+                    // New recordings go to a brand-new gallery folder. Existing clips stay in
+                    // Movies/TurtleLauncher and remain visible in the Gallery app.
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, "Movies/AeroLauncher")
                     // Keep the item hidden until the complete MP4 has been copied. Marking it
                     // published at insert time could leave a visible zero-byte gallery entry.
                     put(MediaStore.Video.Media.IS_PENDING, 1)

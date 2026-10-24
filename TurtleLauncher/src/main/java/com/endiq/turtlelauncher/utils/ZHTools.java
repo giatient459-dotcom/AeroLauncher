@@ -489,7 +489,7 @@ public final class ZHTools {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
 
-                // TurtleLauncher is dark-only, so WebView content always follows the app's
+                // AeroLauncher is dark-only, so WebView content always follows the app's
                 // own theme (Cards / Primary Text) instead of the system's light/dark setting.
                 String[] color = new String[2];
                 color[0] = "#171717";

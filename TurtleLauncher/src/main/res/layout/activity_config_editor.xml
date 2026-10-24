@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TurtleLauncher v10: in-launcher text editor for a version's config files
+<!-- AeroLauncher v10: in-launcher text editor for a version's config files
      (options.txt, config/*.cfg, etc). Left: file list. Right/below: editor. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

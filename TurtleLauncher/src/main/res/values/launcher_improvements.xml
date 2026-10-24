@@ -12,12 +12,12 @@
     <string name="hud_ping_target_hint">play.example.net:25565 or [IPv6]:25565</string>
     <string name="hud_ping_target_description">Enter a server for TCP connection latency (not in-game protocol ping). Probes run every 5 seconds only while this HUD is visible. Leave blank to stop probing.</string>
     <string name="hud_ping_target_invalid">Enter a hostname or bracketed IPv6 address and a port from 1 to 65535.</string>
-    <string name="about_current_developer">TurtleLauncher developer</string>
+    <string name="about_current_developer">Upstream developer</string>
     <string name="about_original_contributor">Original contributor</string>
     <string name="about_logo_gallery">Launcher artwork</string>
     <string name="about_logo_gallery_description">A short light sweep plays once when this page opens. Animations respect reduced motion and stop when you leave.</string>
     <string name="about_developer_portrait">Developer artwork — tap to view</string>
-    <string name="artwork_ic_turtle_full">Turtle logo</string>
+    <string name="artwork_ic_turtle_full">AeroLauncher logo</string>
     <string name="artwork_ic_minecraft">Minecraft grass block</string>
     <string name="artwork_ic_command_block">Command block</string>
     <string name="artwork_ic_old_cobblestone">Classic cobblestone block</string>

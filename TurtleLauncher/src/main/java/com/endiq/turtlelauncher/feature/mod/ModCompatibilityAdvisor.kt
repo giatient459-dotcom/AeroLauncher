@@ -118,7 +118,7 @@ object ModCompatibilityAdvisor {
                 "shader-renderer",
                 shaderMods,
                 "${shaderMods.joinToString(", ")} uses a shader/render pipeline, but ${environment.rendererName} " +
-                    "is not listed by TurtleLauncher as shader-pack capable. A shader setting cannot add missing " +
+                    "is not listed by AeroLauncher as shader-pack capable. A shader setting cannot add missing " +
                     "OpenGL features. If shaders are required, try a renderer marked for shader packs (MobileGlues, " +
                     "VirGL or Zink) only when the exact mod/version supports it; that is not a guarantee for every pack."
             )
@@ -153,7 +153,7 @@ object ModCompatibilityAdvisor {
             findings += Finding(
                 "controller-api",
                 controllerMods,
-                "TurtleLauncher forwards Android gamepad input through its own game controls, but that does not " +
+                "AeroLauncher forwards Android gamepad input through its own game controls, but that does not " +
                     "emulate every desktop LWJGL/JInput controller backend a mod may probe. Use the launcher's " +
                     "Gamepad Mapper for ordinary controls; TouchController has a dedicated proxy integration. " +
                     "A controller mod can still require its own compatible backend/version."
@@ -178,7 +178,7 @@ object ModCompatibilityAdvisor {
                 voxyMods,
                 "Voxy is not a drop-in Android mod. The documented community setup is specific to Zalith Launcher 2, " +
                     "Adreno/Turnip plus a Kopper-Zink desktop-OpenGL stack, a RocksDB native plugin, a compatibility " +
-                    "mod, and exact Minecraft/Sodium versions. TurtleLauncher has not validated or bundled those " +
+                    "mod, and exact Minecraft/Sodium versions. AeroLauncher has not validated or bundled those " +
                     "third-party components; installing Voxy alone cannot provide them. See " +
                     "https://github.com/LXK-98/zalith-voxy and check its current device/version requirements."
             )
@@ -200,7 +200,7 @@ object ModCompatibilityAdvisor {
             findings += Finding(
                 "web-browser-native-runtime",
                 webDisplayMods,
-                "WebDisplays depends on MCEF/Chromium browser runtime components. TurtleLauncher's Android " +
+                "WebDisplays depends on MCEF/Chromium browser runtime components. AeroLauncher's Android " +
                     "mod check already warns when MCEF is present; downloading a desktop MCEF dependency does not " +
                     "supply Android-compatible Chromium binaries. Verify that your exact WebDisplays/MCEF build " +
                     "documents Android support before troubleshooting it as a normal missing dependency."

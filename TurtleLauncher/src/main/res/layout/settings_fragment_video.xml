@@ -381,7 +381,7 @@
                         tools:text="0" />
                 </com.endiq.turtlelauncher.ui.layout.AnimRelativeLayout>
     
-                <!-- TurtleLauncher v10: quick resolution presets + auto-detect -->
+                <!-- AeroLauncher v10: quick resolution presets + auto-detect -->
                 <LinearLayout
                     android:id="@+id/resolutionPresets_layout"
                     android:layout_width="match_parent"

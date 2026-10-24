@@ -55,7 +55,7 @@
             android:textColor="@color/turtle_text_primary"
             android:textSize="14sp"
             android:textStyle="bold"
-            tools:text="turtle_2026-10-18_12.00.00.000.mp4"/>
+            tools:text="aero_2026-10-18_12.00.00.000.mp4"/>
 
         <TextView
             android:id="@+id/recording_meta"

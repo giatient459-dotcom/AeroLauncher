@@ -556,7 +556,7 @@ object TurtleAssistant {
 
     /**
      * The model that answered, in one line under the answer. Worth the two lines it costs:
-     * the user can see which TurtleAI model spent their quota, and can tell when a fallback
+     * the user can see which AeroAI model spent their quota, and can tell when a fallback
      * answered because the first choice ran out.
      */
     private fun modelFooter(
@@ -580,7 +580,7 @@ object TurtleAssistant {
                 " (" + task.blurb + ")"
         }
         val body = buildString {
-            append("TurtleAI models in use:\n").append(lines)
+            append("AeroAI models in use:\n").append(lines)
             append("\n\nFallback: each job tries its model, then the next cheapest one ")
             append("that can do the same work - so a model that runs out of quota no longer ")
             append("takes the feature down with it.")
@@ -790,7 +790,7 @@ object TurtleAssistant {
         val totalMb = runCatching { Tools.getTotalDeviceMemory(context) }.getOrDefault(0)
         val ramMb = runCatching { AllSettings.ramAllocation.value.getValue() }.getOrDefault(0)
         val facts = mutableListOf(
-            "Launcher: " + runCatching { InfoDistributor.APP_NAME }.getOrDefault("TurtleLauncher") +
+            "Launcher: " + runCatching { InfoDistributor.APP_NAME }.getOrDefault("AeroLauncher") +
                 " v" + runCatching { ZHTools.getVersionName() }.getOrDefault("?"),
             "Device: " + Build.MANUFACTURER + " " + Build.MODEL +
                 ", Android API " + Build.VERSION.SDK_INT +
@@ -828,7 +828,7 @@ object TurtleAssistant {
 
         val sb = StringBuilder()
         sb.append("Here's your setup right now:\n")
-        sb.append("• Launcher: ${runCatching { InfoDistributor.APP_NAME }.getOrDefault("TurtleLauncher")} v$launcherVersion\n")
+        sb.append("• Launcher: ${runCatching { InfoDistributor.APP_NAME }.getOrDefault("AeroLauncher")} v$launcherVersion\n")
         sb.append("• Device: ${Build.MANUFACTURER} ${Build.MODEL}, Android ${Build.VERSION.SDK_INT} (${Build.SUPPORTED_ABIS.firstOrNull() ?: "?"})\n")
         if (deviceTotalMb > 0) sb.append("• RAM: ${deviceTotalMb}MB total, ${ramMb}MB allocated to Minecraft\n")
         sb.append("• Renderer: $rendererName\n")
@@ -983,7 +983,7 @@ object TurtleAssistant {
 
     private fun aboutAnswer(context: Context): String {
         val versions = runCatching { VersionsManager.getVersions() }.getOrDefault(emptyList())
-        return "TurtleLauncher is a TurtleLauncher Minecraft: Java Edition " +
+        return "AeroLauncher is a AeroLauncher Minecraft: Java Edition " +
             "launcher for Android.\n\n" +
             "• Version: ${runCatching { ZHTools.getVersionName() }.getOrDefault("?")} " +
             "(code ${runCatching { ZHTools.getVersionCode() }.getOrDefault(0)})\n" +

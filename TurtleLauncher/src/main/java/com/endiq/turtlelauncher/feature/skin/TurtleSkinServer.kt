@@ -199,7 +199,7 @@ object TurtleSkinServer {
 
     private fun rootMetadata(): JSONObject {
         val meta = JSONObject()
-            .put("serverName", "TurtleLauncher Local Skin Server")
+            .put("serverName", "AeroLauncher Local Skin Server")
             .put("implementationName", "turtle-skin-server")
             .put("implementationVersion", "1.0")
             .put("feature.non_email_login", true)

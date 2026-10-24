@@ -10,7 +10,7 @@ import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 /**
- * Internet search for Turtle AI.
+ * Internet search for Aero AI.
  *
  * Design notes, because a search feature has a privacy and a correctness cost:
  *
@@ -76,8 +76,8 @@ object TurtleAiWebSearch {
 
     /** Politeness/identification for the public wikis, which require a real User-Agent. */
     private const val USER_AGENT =
-        "TurtleLauncher-TurtleAI/1.0 (Minecraft: Java Edition launcher for Android; " +
-            "+https://github.com/Endiq-jar/TurtleLauncher)"
+        "AeroLauncher-AeroAI/1.0 (Minecraft: Java Edition launcher for Android; " +
+            "+https://github.com/giatient459-dotcom/AeroLauncher)"
 
     data class Result(val title: String, val snippet: String, val url: String)
 

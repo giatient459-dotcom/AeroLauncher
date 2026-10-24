@@ -228,7 +228,10 @@ android {
                     }
 
                     (output.getFilter(ABI)?.identifier ?: "all").let { abi ->
-                        val baseName = "$launcherName-${if (variant.buildType == "release") defaultConfig.versionName else "Debug-${defaultConfig.versionName}"}"
+                        // User-visible download name -> brand name (launcherName stays the
+                        // internal identifier used for data directories and log tags).
+                        val artifactName = launcherAPPName.replace(" ", "")
+                        val baseName = "$artifactName-${if (variant.buildType == "release") defaultConfig.versionName else "Debug-${defaultConfig.versionName}"}"
                         output.outputFileName = if (abi == "all") "$baseName.apk" else "$baseName-$abi.apk"
                     }
                 }

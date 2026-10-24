@@ -84,7 +84,7 @@ object NativeCrashCapture {
                 ?.let { runCatching { CrashAnalyzer.formatForDisplay(it, null) }.getOrNull() }
 
             val reportText = buildString {
-                appendLine("TurtleLauncher native crash report")
+                appendLine("AeroLauncher native crash report")
                 appendLine(" - Time: ${DateFormat.getDateTimeInstance().format(Date(newest.timestamp))}")
                 appendLine(" - Reason: ${reasonName(newest.reason)} (status ${newest.status})")
                 appendLine(" - System description: ${newest.description ?: "<none given>"}")

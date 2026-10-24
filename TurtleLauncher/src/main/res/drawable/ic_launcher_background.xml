@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Night-sky gradient behind the turtle, matching the logo artwork -->
+<!-- Night-sky gradient behind the AeroLauncher emblem. Matches the sky baked into
+     res/drawable/ic_turtle_full.webp and tools/generate_aero_identity.py. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <gradient
         android:angle="270"
-        android:startColor="#FF66AAB1"
-        android:endColor="#FF17494A"
+        android:startColor="#FF12303A"
+        android:endColor="#FF06141A"
         android:type="linear" />
 </shape>

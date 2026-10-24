@@ -22,6 +22,16 @@ class ExperimentalSettingsFragment :
     AbstractSettingsFragment(R.layout.settings_fragment_experimental, SettingCategory.EXPERIMENTAL) {
     companion object {
         const val TAG: String = "ExperimentalSettingsFragment"
+
+        /** Current backup file name (rebranded). */
+        private const val SETTINGS_BACKUP_FILE = "AeroLauncher_settings_backup.json"
+
+        /** Pre-rebrand name, still read so old backups keep working. */
+        private const val LEGACY_SETTINGS_BACKUP_FILE = "TurtleLauncher_settings_backup.json"
+
+        private fun downloadsDir() = android.os.Environment.getExternalStoragePublicDirectory(
+            android.os.Environment.DIRECTORY_DOWNLOADS
+        )
     }
 
     private lateinit var binding: SettingsFragmentExperimentalBinding
@@ -103,10 +113,7 @@ class ExperimentalSettingsFragment :
         SwitchSettingsWrapper(context, AllSettings.anrDetectorEnabled, binding.anrDetectorEnabledLayout, binding.anrDetectorEnabled)
 
         BaseSettingsWrapper(context, binding.exportSettingsLayout) {
-            val destFile = java.io.File(
-                android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS),
-                "TurtleLauncher_settings_backup.json"
-            )
+            val destFile = java.io.File(downloadsDir(), SETTINGS_BACKUP_FILE)
             val ok = com.endiq.turtlelauncher.feature.turtle.SettingsBackupManager.exportToFile(destFile)
             Toast.makeText(
                 context,
@@ -116,10 +123,12 @@ class ExperimentalSettingsFragment :
         }
 
         BaseSettingsWrapper(context, binding.importSettingsLayout) {
-            val srcFile = java.io.File(
-                android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS),
-                "TurtleLauncher_settings_backup.json"
-            )
+            // Prefer the AeroLauncher backup; fall back to the pre-rebrand file name so
+            // backups exported before the rename still restore.
+            val srcFile = listOf(SETTINGS_BACKUP_FILE, LEGACY_SETTINGS_BACKUP_FILE)
+                .map { java.io.File(downloadsDir(), it) }
+                .firstOrNull { it.exists() }
+                ?: java.io.File(downloadsDir(), SETTINGS_BACKUP_FILE)
             val ok = com.endiq.turtlelauncher.feature.turtle.SettingsBackupManager.importFromFile(srcFile)
             Toast.makeText(
                 context,
@@ -177,7 +186,7 @@ class ExperimentalSettingsFragment :
             binding.aiSkinFilter
         )
 
-        // Turtle AI: language, optional cloud brain, optional web search. See
+        // Aero AI: language, optional cloud brain, optional web search. See
         // feature/ai/TurtleAiLanguage.kt, TurtleAiGemini.kt and TurtleAiWebSearch.kt.
         BaseSettingsWrapper(context, binding.aiLanguageLayout) {
             promptSetAssistantLanguage(context)
@@ -343,7 +352,7 @@ class ExperimentalSettingsFragment :
     }
 
     /**
-     * The model picker for one job. The list is the TurtleAI catalogue (the names the user
+     * The model picker for one job. The list is the AeroAI catalogue (the names the user
      * knows), with the live list from the API appended for the configured key - model names
      * change far faster than app releases, and a hand-typed id is still possible.
      */

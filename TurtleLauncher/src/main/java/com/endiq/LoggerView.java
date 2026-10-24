@@ -26,7 +26,7 @@ public class LoggerView extends ConstraintLayout {
     private ViewLoggerBinding binding;
     private boolean isShowing = false;
 
-    // TurtleLauncher v10: raw, unfiltered log lines kept separately so the regex/text
+    // AeroLauncher v10: raw, unfiltered log lines kept separately so the regex/text
     // filter can be applied and cleared without losing history that arrived before it.
     private final StringBuilder rawLogBuffer = new StringBuilder();
     private java.util.regex.Pattern activeFilter = null;
@@ -97,7 +97,7 @@ public class LoggerView extends ConstraintLayout {
                 });
         binding.toggleLog.setChecked(false);
 
-        // TurtleLauncher v10: share the current log content via the Android share sheet.
+        // AeroLauncher v10: share the current log content via the Android share sheet.
         binding.shareLog.setOnClickListener(v -> {
             String text = rawLogBuffer.toString();
             if (text.isEmpty()) text = binding.logView.getText().toString();
@@ -109,7 +109,7 @@ public class LoggerView extends ConstraintLayout {
             getContext().startActivity(chooser);
         });
 
-        // TurtleLauncher v10: regex/plain-text log filter. Empty = show everything.
+        // AeroLauncher v10: regex/plain-text log filter. Empty = show everything.
         // Accepts a plain substring, or a /regex/ wrapped pattern for full regex filtering.
         binding.logFilter.addTextChangedListener(new android.text.TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

@@ -4,11 +4,11 @@ import com.endiq.turtlelauncher.setting.AllSettings
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * Which TurtleAI model handles what, and what to fall back to when one runs out of quota.
+ * Which AeroAI model handles what, and what to fall back to when one runs out of quota.
  *
- * TurtleAI is the launcher's name for the Google Gemini models it talks to - the same models,
+ * AeroAI is the launcher's name for the Google Gemini models it talks to - the same models,
  * under the names this app shows. The numbering follows the model family: 3.x models are
- * **TurtleAI3.x** (3.8 down to 3.0) and the 2.5 generation is **TurtleAI2.5**, which is kept
+ * **AeroAI3.x** (3.8 down to 3.0) and the 2.5 generation is **AeroAI2.5**, which is kept
  * around because it is usually the cheapest and most widely available thing to fall back to.
  *
  * ## Why a registry instead of one model id
@@ -47,7 +47,7 @@ object TurtleAiModels {
      * One model the launcher knows how to call.
      *
      * @param id    the real API id - this is what actually goes on the wire.
-     * @param label what the user sees: the TurtleAI name.
+     * @param label what the user sees: the AeroAI name.
      * @param note  one line on what it is for, shown in the picker.
      */
     data class Model(
@@ -105,40 +105,40 @@ object TurtleAiModels {
      * degrades into "skip to the next one in the chain" rather than a broken build.
      */
     val MODELS: List<Model> = listOf(
-        Model(FLASH_38, "TurtleAI3.8 Flash", "Best all-round model - writing, questions, images in, code"),
-        Model(FLASH_37, "TurtleAI3.7 Flash", "Strongest for code, agents and long multi-step tasks"),
-        Model(FLASH_36, "TurtleAI3.6 Flash", "General multimodal - text, images, audio"),
-        Model(FLASH_35, "TurtleAI3.5 Flash", "Fast general tasks, good balance of speed and quality"),
-        Model(LITE_35, "TurtleAI3.5 Flash-Lite", "Cheapest and highest volume - short answers, labelling"),
-        Model(LITE_31, "TurtleAI3.1 Flash-Lite", "Very efficient, very cheap"),
-        Model(PRO_31, "TurtleAI3.1 Pro", "Advanced reasoning - hard maths, planning, tricky diagnosis"),
-        Model(FLASH_30, "TurtleAI3 Flash (preview)", "Frontier preview model"),
-        Model(FLASH_25, "TurtleAI2.5 Flash", "Previous generation - cheap and widely available"),
-        Model(LITE_25, "TurtleAI2.5 Flash-Lite", "Previous generation, cheapest tier"),
-        Model(PRO_25, "TurtleAI2.5 Pro", "Previous generation reasoning model"),
+        Model(FLASH_38, "AeroAI3.8 Flash", "Best all-round model - writing, questions, images in, code"),
+        Model(FLASH_37, "AeroAI3.7 Flash", "Strongest for code, agents and long multi-step tasks"),
+        Model(FLASH_36, "AeroAI3.6 Flash", "General multimodal - text, images, audio"),
+        Model(FLASH_35, "AeroAI3.5 Flash", "Fast general tasks, good balance of speed and quality"),
+        Model(LITE_35, "AeroAI3.5 Flash-Lite", "Cheapest and highest volume - short answers, labelling"),
+        Model(LITE_31, "AeroAI3.1 Flash-Lite", "Very efficient, very cheap"),
+        Model(PRO_31, "AeroAI3.1 Pro", "Advanced reasoning - hard maths, planning, tricky diagnosis"),
+        Model(FLASH_30, "AeroAI3 Flash (preview)", "Frontier preview model"),
+        Model(FLASH_25, "AeroAI2.5 Flash", "Previous generation - cheap and widely available"),
+        Model(LITE_25, "AeroAI2.5 Flash-Lite", "Previous generation, cheapest tier"),
+        Model(PRO_25, "AeroAI2.5 Pro", "Previous generation reasoning model"),
 
-        Model(IMAGE_31, "TurtleAI3.1 Image", "Image generation and editing (Nano Banana 2)"),
-        Model(IMAGE_31_LITE, "TurtleAI3.1 Image Lite", "Cheapest image generation"),
-        Model(IMAGE_PRO_3, "TurtleAI3 Pro Image", "Highest quality images, higher resolution"),
-        Model(IMAGE_25, "TurtleAI2.5 Image", "Previous generation image model"),
+        Model(IMAGE_31, "AeroAI3.1 Image", "Image generation and editing (Nano Banana 2)"),
+        Model(IMAGE_31_LITE, "AeroAI3.1 Image Lite", "Cheapest image generation"),
+        Model(IMAGE_PRO_3, "AeroAI3 Pro Image", "Highest quality images, higher resolution"),
+        Model(IMAGE_25, "AeroAI2.5 Image", "Previous generation image model"),
 
-        Model(TTS_38, "TurtleAI3.8 TTS", "Natural speech from text"),
-        Model(TTS_38_LITE, "TurtleAI3.8 Flash-Lite TTS", "Cheapest speech"),
-        Model(TTS_31, "TurtleAI3.1 TTS (preview)", "Earlier speech model"),
-        Model(TTS_25, "TurtleAI2.5 TTS", "Previous generation speech model"),
+        Model(TTS_38, "AeroAI3.8 TTS", "Natural speech from text"),
+        Model(TTS_38_LITE, "AeroAI3.8 Flash-Lite TTS", "Cheapest speech"),
+        Model(TTS_31, "AeroAI3.1 TTS (preview)", "Earlier speech model"),
+        Model(TTS_25, "AeroAI2.5 TTS", "Previous generation speech model"),
 
-        Model(TRANSCRIBE_35, "TurtleAI3.5 Transcribe", "Audio to text"),
-        Model(TRANSCRIBE_LIVE_35, "TurtleAI3.5 Transcribe Live", "Live audio to text"),
+        Model(TRANSCRIBE_35, "AeroAI3.5 Transcribe", "Audio to text"),
+        Model(TRANSCRIBE_LIVE_35, "AeroAI3.5 Transcribe Live", "Live audio to text"),
 
-        Model(LIVE_38, "TurtleAI3.8 Live", "Realtime voice conversation"),
-        Model(LIVE_38_THINKING, "TurtleAI3.8 Live Extended Thinking", "Voice, with more thinking time"),
-        Model(LIVE_31, "TurtleAI3.1 Live (preview)", "Earlier realtime voice model"),
+        Model(LIVE_38, "AeroAI3.8 Live", "Realtime voice conversation"),
+        Model(LIVE_38_THINKING, "AeroAI3.8 Live Extended Thinking", "Voice, with more thinking time"),
+        Model(LIVE_31, "AeroAI3.1 Live (preview)", "Earlier realtime voice model"),
 
-        Model(VEO_31, "TurtleAI3.1 Veo", "Video generation"),
-        Model(VEO_31_LITE, "TurtleAI3.1 Veo Lite", "Cheaper, smaller video generation"),
+        Model(VEO_31, "AeroAI3.1 Veo", "Video generation"),
+        Model(VEO_31_LITE, "AeroAI3.1 Veo Lite", "Cheaper, smaller video generation"),
 
-        Model(EMBED_2, "TurtleAI Embedding 2", "Text embeddings (search and similarity)"),
-        Model(EMBED_1, "TurtleAI Embedding", "Previous generation embeddings")
+        Model(EMBED_2, "AeroAI Embedding 2", "Text embeddings (search and similarity)"),
+        Model(EMBED_1, "AeroAI Embedding", "Previous generation embeddings")
     )
 
     private val BY_ID: Map<String, Model> = MODELS.associateBy { it.id }
@@ -197,7 +197,7 @@ object TurtleAiModels {
     @JvmStatic
     fun primary(task: Task): String = chain(task).firstOrNull() ?: FLASH_38
 
-    /** What the user sees for a model id - the TurtleAI name, or the raw id if unknown. */
+    /** What the user sees for a model id - the AeroAI name, or the raw id if unknown. */
     @JvmStatic
     fun label(id: String): String {
         if (id.isBlank() || id == AUTO) return "Automatic"
@@ -208,7 +208,7 @@ object TurtleAiModels {
     fun note(id: String): String = BY_ID[id]?.note.orEmpty()
 
     /**
-     * Picker entries: value -> label, with the TurtleAI name first and the real id in the
+     * Picker entries: value -> label, with the AeroAI name first and the real id in the
      * label so nobody has to guess which Google model they are spending quota on.
      */
     @JvmStatic
