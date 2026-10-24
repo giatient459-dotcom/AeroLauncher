@@ -13,7 +13,7 @@
              them fails aapt2 linking with "style attribute not found". -->
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/miuix_surface</item>
+        <item name="android:windowBackground">@drawable/aerolauncher_splash</item>
         <item name="android:colorBackground">@color/miuix_surface</item>
         <item name="colorSurface">@color/miuix_surface_container</item>
         <item name="colorOnSurface">@color/miuix_on_surface</item>
