@@ -29,6 +29,7 @@
 ## 20-way parallel downloads
 
 - Minecraft asset, library, and client-file downloads use one scheduled task per file; the pool is capped at 20 concurrent tasks.
+- Java runtime installation downloads the universal class-library archive and device-specific JVM archive concurrently (two independent package transfers), then verifies both signatures before installing either package.
 - The setting defaults to 20 and the slider is capped at 20. The runtime clamps older saved values (such as 128) to 20 too.
 - This is parallel downloading of independent files, not HTTP byte-range splitting of a single large file. It does not guarantee a 20x speedup; network/server limits, disk I/O, and device CPU/RAM determine the actual gain.
 - The pool still honors SHA-1 checks where configured and keeps the existing mirror download path.
