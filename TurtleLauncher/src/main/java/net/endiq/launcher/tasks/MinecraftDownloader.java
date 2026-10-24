@@ -37,6 +37,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class MinecraftDownloader {
     private static final double ONE_MEGABYTE = (1024d * 1024d);
+    /** Upper bound protects Android devices from excessive sockets, buffers and worker stacks. */
+    static final int MAX_CONCURRENT_DOWNLOADS = 20;
     public static final String MINECRAFT_RES = "https://resources.download.minecraft.net/";
     private static final String MAVEN_CENTRAL_REPO1 = "https://repo1.maven.org/maven2/";
 
@@ -133,16 +135,24 @@ public class MinecraftDownloader {
         }
     }
 
+    /**
+     * Clamp old persisted settings (some users may still have 128 saved) as well as the
+     * visible preference to a safe maximum. Every scheduled asset/library/client file is
+     * an independent task; this does not split one file into HTTP byte-range chunks.
+     */
+    static int resolveMaxDownloadThreads(int configuredThreads, int taskCount) {
+        if (taskCount <= 0) return 1;
+        return Math.max(1, Math.min(MAX_CONCURRENT_DOWNLOADS, Math.min(configuredThreads, taskCount)));
+    }
+
     @NonNull
     private ThreadPoolExecutor createThreadPoolExecutor() {
-        int maxThreads = AllSettings.getMaxDownloadThreads().getValue();
-        if (mScheduledDownloadTasks.size() <= maxThreads) {
-            maxThreads = mScheduledDownloadTasks.size();
-        }
+        int maxThreads = resolveMaxDownloadThreads(
+                AllSettings.getMaxDownloadThreads().getValue(), mScheduledDownloadTasks.size());
         // Core == max, with an unbounded queue: ThreadPoolExecutor only grows past the core
         // size when the queue is full, so a bounded queue sized to the task count kept the pool
         // at maxThreads / 2 threads and silently halved download concurrency.
-        int threads = Math.max(1, maxThreads);
+        int threads = maxThreads;
         return new ThreadPoolExecutor(
                 threads,
                 threads,

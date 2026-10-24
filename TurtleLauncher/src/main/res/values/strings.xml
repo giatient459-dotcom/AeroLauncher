@@ -963,8 +963,8 @@
     <string name="setting_download_source_desc">Choose a mirror download source instead of using the official download source</string>
     <string name="setting_dns_server_title">DNS Server</string>
     <string name="setting_dns_server_desc">Use a specific public DNS resolver for the launcher\'s network requests, instead of the device\'s default</string>
-    <string name="setting_max_download_threads_title">Max Download Threads</string>
-    <string name="setting_max_download_threads_desc">Maximum number of concurrent downloads when downloading multiple files simultaneously, but too many threads will cause launcher lag. 64 threads are sufficient!</string>
+    <string name="setting_max_download_threads_title">Concurrent Downloads</string>
+    <string name="setting_max_download_threads_desc">Downloads Minecraft assets, libraries, and client files in parallel. Up to 20 files can download at once; the best speed depends on your network, server, storage, and device.</string>
     <string name="setting_version_isolation_title">Version Isolation</string>
     <string name="setting_version_isolation_desc">Enable version isolation for the game version\nWhen disabled, the game path will be .minecraft/\nWhen enabled, the game path will change to .minecraft/versions/&lt;version name&gt;/</string>
     <string name="setting_version_custom_info_title">Custom Info</string>
@@ -1558,4 +1558,5 @@
     <string name="logo_home_icon_changed">Home screen icon changed to this logo</string>
     <string name="logo_home_icon_default">Logo applied. Imported logos can\'t be the home screen icon, so it was reset to the default.</string>
     <string name="logo_home_icon_failed">Logo applied, but the home screen icon could not be changed</string>
+    <string name="game_java_requirement_unknown">Cannot determine the Java version required by Minecraft %1$s. Refresh the version metadata and try again.</string>
 </resources>

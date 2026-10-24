@@ -10,19 +10,19 @@ import java.util.concurrent.TimeUnit
 
 class TaskExecutors {
     companion object {
-        // Size the pool from the device core count and let idle threads time out:
-        // Low-end devices are not pinned to 4 threads: the pool grows to the core count under
-        // load and shrinks again when idle, saving battery and memory.
-        private val cpuCores = Runtime.getRuntime().availableProcessors().coerceAtLeast(2)
-        private val corePoolSize = cpuCores.coerceIn(2, 4)
-        private val maxPoolSize = (cpuCores).coerceAtLeast(corePoolSize)
+        // Keep the shared queue semantics compatible with existing submitters for now:
+        // changing it to bounded/rejecting semantics before auditing every caller could drop
+        // downloads or throw RejectedExecutionException in code that does not handle rejection.
+        // Cap active workers at four, and at one on single-core devices, to balance parallel
+        // work against memory/CPU contention on Android.
+        private val workerCount = Runtime.getRuntime().availableProcessors().coerceIn(1, 4)
 
         @Volatile
         @JvmStatic
         var isGameSessionActive: Boolean = false
 
         private val defaultExecutors: ExecutorService = object : ThreadPoolExecutor(
-            corePoolSize, maxPoolSize, 10_000, TimeUnit.MILLISECONDS, LinkedBlockingQueue()
+            workerCount, workerCount, 10_000, TimeUnit.MILLISECONDS, LinkedBlockingQueue()
         ) {
             override fun beforeExecute(t: Thread, r: Runnable) {
                 super.beforeExecute(t, r)
@@ -32,7 +32,7 @@ class TaskExecutors {
                 )
             }
         }.apply {
-            // Let core threads be reclaimed after idling instead of living forever.
+            // Let idle workers be reclaimed instead of keeping their stacks allocated forever.
             allowCoreThreadTimeOut(true)
         }
         private val uiHandler = Handler(Looper.getMainLooper())
