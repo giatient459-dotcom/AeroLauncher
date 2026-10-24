@@ -25,8 +25,8 @@ object SettingsBackupManager {
             val file = PathManager.FILE_SETTINGS
             if (!file.exists()) return null
             val text = Tools.read(file)
-            // Sanity check it's actually a JSON array before handing it out.
-            com.google.gson.JsonParser.parseString(text).asJsonArray
+            // Do not create backups that the restore path itself would reject.
+            check(isValidBackupJson(text)) { "Settings file has an invalid record structure" }
             text
         }.onFailure { e -> Logging.e(TAG, "Settings export failed", e) }.getOrNull()
     }
