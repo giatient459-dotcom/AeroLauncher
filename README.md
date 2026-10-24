@@ -515,7 +515,7 @@ AeroLauncher does not grant ownership of Minecraft. Users are responsible for co
 
 <p align="center">
   <sub>
-    Upstream code by <a href="https://github.com/Endiq-jar">Endiq</a>,
+    Upstream code by <a href="https://github.com/giatient459-dotcom">giatient459-dotcom</a>,
     rebranded and maintained as AeroLauncher in this fork,
     with the open-source community.
   </sub>
