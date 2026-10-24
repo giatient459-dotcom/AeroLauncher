@@ -24,6 +24,7 @@ gradient, and is edited by hand.
 Run from the repository root:
     python3 tools/generate_aero_identity.py
 """
+import math
 from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageFont
@@ -52,10 +53,13 @@ GLYPH_ROW_SPLIT = 0.5
 def font_glyph(char, size=GLYPH_SIZE):
     """Threshold one character of the bundled font into a 1-bit bitmap."""
     font = ImageFont.truetype(str(ROOT / "font/proxima_nova_extrabold.ttf"), size)
-    canvas = Image.new("L", (size * 6, size * 3), 0)
+    # Size the raster to the real advance width, so long strings cannot clip.
+    width = int(math.ceil(font.getlength(char))) + size
+    canvas = Image.new("L", (width, size * 3), 0)
     ImageDraw.Draw(canvas).text((0, 0), char, font=font, fill=255)
     bbox = canvas.getbbox()
     assert bbox, f"glyph {char!r} rendered empty"
+    assert bbox[2] <= width, "glyph raster clipped"
     mask = canvas.crop((0, bbox[1], bbox[2], bbox[3]))
     return [[mask.getpixel((x, y)) >= 128 for x in range(mask.width)] for y in range(mask.height)]
 
