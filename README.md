@@ -93,7 +93,7 @@ From instance management and mod loaders to renderer options, Java runtimes, acc
 - 💚 Build an open-source project that can grow with its community.
 
 <p align="center">
-  <img src="1.jpg" width="92%" alt="AeroLauncher main interface and Minecraft launcher preview" />
+  <img src="docs/branding/aerolauncher-readme-splash.svg" width="100%" alt="AeroLauncher futuristic cyan and navy brand splash" />
 </p>
 
 <p align="center">
@@ -225,11 +225,11 @@ The in-game Dark Mode resource pack is intended to darken supported menus, butto
 </p>
 
 <p align="center">
-  <img src="1.jpg" width="90%" alt="AeroLauncher screenshot" />
+  <p align="center"><em>Application screenshots will be added here after capturing the current AeroLauncher interface.</em></p>
 </p>
 
 <p align="center">
-  <sub>More screenshots can be added here as the interface evolves.</sub>
+  <sub>This section is reserved for real screenshots of the current AeroLauncher build.</sub>
 </p>
 
 ## 📥 Installation
