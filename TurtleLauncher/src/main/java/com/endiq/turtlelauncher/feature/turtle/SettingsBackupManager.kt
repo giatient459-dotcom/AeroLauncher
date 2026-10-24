@@ -47,26 +47,30 @@ object SettingsBackupManager {
      * Settings.refreshSettings() resolves duplicates by taking the last record silently.
      */
     @JvmStatic
-    fun isValidBackupJson(json: String): Boolean = runCatching {
-        val parsed = com.google.gson.JsonParser.parseString(json)
-        if (!parsed.isJsonArray) return false
+    fun isValidBackupJson(json: String): Boolean {
+        return runCatching {
+            val parsed = com.google.gson.JsonParser.parseString(json)
+            if (!parsed.isJsonArray) {
+                false
+            } else {
+                val keys = HashSet<String>()
+                parsed.asJsonArray.all { element ->
+                    if (!element.isJsonObject) return@all false
+                    val record = element.asJsonObject
+                    val keyElement = record.get("key")
+                    if (keyElement == null || !keyElement.isJsonPrimitive ||
+                        !keyElement.asJsonPrimitive.isString
+                    ) return@all false
 
-        val keys = HashSet<String>()
-        parsed.asJsonArray.all { element ->
-            if (!element.isJsonObject) return@all false
-            val record = element.asJsonObject
-            val keyElement = record.get("key")
-            if (keyElement == null || !keyElement.isJsonPrimitive ||
-                !keyElement.asJsonPrimitive.isString
-            ) return@all false
+                    val key = keyElement.asString
+                    if (key.isBlank() || !keys.add(key)) return@all false
 
-            val key = keyElement.asString
-            if (key.isBlank() || !keys.add(key)) return@all false
-
-            val value = record.get("value") ?: return@all false
-            value.isJsonNull || (value.isJsonPrimitive && value.asJsonPrimitive.isString)
-        }
-    }.getOrDefault(false)
+                    val value = record.get("value") ?: return@all false
+                    value.isJsonNull || (value.isJsonPrimitive && value.asJsonPrimitive.isString)
+                }
+            }
+        }.getOrDefault(false)
+    }
 
     @JvmStatic
     fun importFromJson(json: String): Boolean {
