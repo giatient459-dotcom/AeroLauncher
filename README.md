@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:050D08,20:0B2615,45:14532D,70:16A34A,100:86EFAC&height=280&section=header&text=TurtleLauncher&fontSize=62&fontColor=FFFFFF&fontAlign=50&fontAlignY=35&animation=fadeIn&desc=MINECRAFT%20JAVA%20EDITION%20%E2%80%A2%20ANDROID&descSize=16&descAlign=50&descAlignY=56" width="100%" alt="TurtleLauncher — Minecraft Java Edition for Android" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:050D08,20:0B2615,45:14532D,70:16A34A,100:86EFAC&height=280&section=header&text=AeroLauncher&fontSize=62&fontColor=FFFFFF&fontAlign=50&fontAlignY=35&animation=fadeIn&desc=MINECRAFT%20JAVA%20EDITION%20%E2%80%A2%20ANDROID&descSize=16&descAlign=50&descAlignY=56" width="100%" alt="AeroLauncher — Minecraft Java Edition for Android" />
 </p>
 
-<h1 align="center">🐢 TurtleLauncher</h1>
+<h1 align="center">🚀 AeroLauncher</h1>
 
 <p align="center">
   <strong>Your Minecraft. Your Device. Your Freedom.</strong>
@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://github.com/Endiq-jar/TurtleLauncher/releases">
-    <img src="https://img.shields.io/badge/⬇_DOWNLOAD-LATEST_RELEASE-16A34A?style=for-the-badge&logo=android&logoColor=white" alt="Download TurtleLauncher" />
+    <img src="https://img.shields.io/badge/⬇_DOWNLOAD-LATEST_RELEASE-16A34A?style=for-the-badge&logo=android&logoColor=white" alt="Download AeroLauncher" />
   </a>
   <a href="https://github.com/Endiq-jar/TurtleLauncher/issues/new/choose">
     <img src="https://img.shields.io/badge/🐛_REPORT-A_BUG-202820?style=for-the-badge&logo=github&logoColor=4ADE80" alt="Report a bug" />
