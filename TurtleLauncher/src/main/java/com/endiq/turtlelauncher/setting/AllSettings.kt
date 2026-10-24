@@ -201,7 +201,7 @@ class AllSettings {
         @JvmStatic val resourceImageCache       = BooleanSettingUnit("resourceImageCache", true)
         @JvmStatic val addFullResourceName      = BooleanSettingUnit("addFullResourceName", true)
         @JvmStatic val downloadSource           = StringSettingUnit("downloadSource", "default")
-        @JvmStatic val maxDownloadThreads       = IntSettingUnit("maxDownloadThreads", 128)
+        @JvmStatic val maxDownloadThreads       = IntSettingUnit("maxDownloadThreads", 20)
         @JvmStatic val launcherTheme            = StringSettingUnit("launcherTheme", "dark")
         /** Launcher language: "system" or a Minecraft-style locale code ("pt_br", "ja_jp", ...)
          *  from R.array.all_game_language_value. See context/LocaleHelper.kt. */
