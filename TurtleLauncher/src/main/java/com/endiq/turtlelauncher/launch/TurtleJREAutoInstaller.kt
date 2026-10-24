@@ -12,6 +12,10 @@ import net.endiq.launcher.progresskeeper.ProgressKeeper
 import net.endiq.launcher.utils.DownloadUtils
 import java.io.File
 import java.io.FileInputStream
+import java.io.IOException
+import java.util.concurrent.Callable
+import java.util.concurrent.ExecutionException
+import java.util.concurrent.Executors
 
 /**
  * TurtleJREAutoInstaller
@@ -191,19 +195,42 @@ object TurtleJREAutoInstaller {
                 val signature = signatures[key] ?: error("Missing runtime signature: $key")
                 check(FileInputStream(file).use { verifier.verify(it, signature) }) { "Runtime signature check failed: $key" }
             }
-            // 1) Universal (class library) package
-            Logging.i("TurtleJREAutoInstaller", "↓ universal.tar.xz")
-            DownloadUtils.downloadFile(baseUrl + "universal.tar.xz", univFile)
+            // The universal class library and this device's JVM binaries are independent
+            // signed packages. Download both at once, then verify each before installation.
+            val packagePool = Executors.newFixedThreadPool(2)
+            val universalDownload = packagePool.submit(Callable<Void> {
+                Logging.i("TurtleJREAutoInstaller", "↓ universal.tar.xz")
+                DownloadUtils.downloadFile(baseUrl + "universal.tar.xz", univFile)
+                null
+            })
+            val platformDownload = packagePool.submit(Callable<Void> {
+                Logging.i("TurtleJREAutoInstaller", "↓ bin-$arch.tar.xz")
+                DownloadUtils.downloadFile(baseUrl + "bin-$arch.tar.xz", platFile)
+                null
+            })
+            packagePool.shutdown()
+            try {
+                universalDownload.get()
+                platformDownload.get()
+            } catch (e: InterruptedException) {
+                packagePool.shutdownNow()
+                Thread.currentThread().interrupt()
+                throw IOException("Interrupted while downloading Java runtime packages", e)
+            } catch (e: ExecutionException) {
+                packagePool.shutdownNow()
+                val cause = e.cause
+                if (cause is IOException) throw cause
+                throw IOException("Unable to download Java runtime packages", cause)
+            } finally {
+                packagePool.shutdownNow()
+            }
+
             verify(univFile, "universal.tar.xz")
+            verify(platFile, "bin-$arch.tar.xz")
 
             ProgressKeeper.submitProgress(
                 ProgressLayout.UNPACK_RUNTIME, 40,
                 R.string.downloading_java_runtime_platform)
-
-            // 2) Platform-specific (JVM binaries) package
-            Logging.i("TurtleJREAutoInstaller", "↓ bin-$arch.tar.xz")
-            DownloadUtils.downloadFile(baseUrl + "bin-$arch.tar.xz", platFile)
-            verify(platFile, "bin-$arch.tar.xz")
 
             ProgressKeeper.submitProgress(
                 ProgressLayout.UNPACK_RUNTIME, 80,
