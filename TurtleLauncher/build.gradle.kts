@@ -435,6 +435,7 @@ dependencies {
     implementation("io.github.petterpx:floatingx:2.3.3")
     implementation("org.greenrobot:eventbus:3.3.1")
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.11.0")
     implementation("com.moandjiezana.toml:toml4j:0.7.2") {
         exclude(group = "com.google.code.gson", module = "gson")
     }
