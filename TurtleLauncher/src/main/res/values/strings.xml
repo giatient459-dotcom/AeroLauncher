@@ -305,7 +305,9 @@
     <string name="install_extras_title">Install Options</string>
     <string name="install_extras_subtitle">Add either of these to this install, then confirm below</string>
     <string name="install_extras_turtle_client">Turtle Client</string>
-    <string name="install_extras_turtle_client_desc">Optional client mod for AeroLauncher profiles</string>
+    <!-- "Turtle Client" is a third-party Modrinth mod (slug: turtleclient), not launcher branding:
+         the name is left as published so users can find it on Modrinth. -->
+    <string name="install_extras_turtle_client_desc">Optional third-party Fabric client mod, installed from Modrinth</string>
     <string name="install_extras_fps_boost">FPS Boost</string>
     <string name="install_extras_fps_boost_desc">Performance mod for smoother framerates</string>
     <string name="account_detail_uuid">UUID</string>
