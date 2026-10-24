@@ -22,6 +22,9 @@ class JavaRuntimeCompatibilityTest {
         // For future year-based branches, trust metadata; do not silently assume Java 25.
         assertEquals(25, LaunchArgs.resolveRequiredJava("27.0", 25))
         assertEquals(0, LaunchArgs.resolveRequiredJava("27.0", 0))
+        // Unknown/custom labels must use explicit metadata; do not silently guess Java 8.
+        assertEquals(17, LaunchArgs.resolveRequiredJava("custom-fabric-pack", 17))
+        assertEquals(0, LaunchArgs.resolveRequiredJava("custom-fabric-pack", 0))
     }
 
     @Test
