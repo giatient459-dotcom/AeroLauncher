@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Night-sky gradient behind the turtle, matching the logo artwork -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <gradient
-        android:angle="270"
-        android:startColor="#FF66AAB1"
-        android:endColor="#FF17494A"
-        android:type="linear" />
-</shape>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle"><gradient android:angle="315" android:startColor="#FF07111F" android:centerColor="#FF0B1B2D" android:endColor="#FF102C46" android:type="linear"/></shape>

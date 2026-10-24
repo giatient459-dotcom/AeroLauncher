@@ -27,7 +27,7 @@ object FeaturePluginManager {
      */
     @JvmStatic
     fun parseApkPlugin(context: Context, info: ApplicationInfo) {
-        if (info.packageName == context.packageName) return // never surface TurtleLauncher itself
+        if (info.packageName == context.packageName) return // never surface AeroLauncher itself
         val metaData = info.metaData ?: return
         if (!metaData.getBoolean(META_IS_FEATURE_PLUGIN, false)) return
 

@@ -107,7 +107,7 @@ object ModMetadataConflictDetector {
                         append("${target.name} (${target.file.name}) [ID '$targetId']")
                         if (target.version.isNotBlank()) append(" at version '${target.version}'")
                         if (predicateText != null) append(" for version predicate $predicateText")
-                        if (match == null) append("; Turtle Launcher could not evaluate that predicate")
+                        if (match == null) append("; AeroLauncher could not evaluate that predicate")
                         rule.reason?.takeIf { it.isNotBlank() }?.let { append(". Mod author note: $it") }
                         append('.')
                     }

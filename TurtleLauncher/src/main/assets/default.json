@@ -646,8 +646,8 @@
     }
   ],
   "mControlInfoDataList": {
-    "author": "Turtle Officials",
-    "desc": "New Controls for TurtleLauncher",
+    "author": "AeroLauncher Team",
+    "desc": "Default controls bundled with AeroLauncher",
     "name": "Default",
     "version": "null"
   },

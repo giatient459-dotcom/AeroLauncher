@@ -39,7 +39,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <!-- Animated turtle logo: static poster at rest, WebP frames + a slow glide
+    <!-- Animated AeroLauncher emblem: static poster at rest, WebP frames + a slow glide
          transform while hovered, pressed, focused or clicked (see AnimatedLogo /
          AnimatedIcon). -->
     <com.endiq.turtlelauncher.ui.view.LogoImageView

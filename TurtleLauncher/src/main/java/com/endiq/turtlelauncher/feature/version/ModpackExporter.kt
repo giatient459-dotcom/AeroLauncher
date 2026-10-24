@@ -105,7 +105,7 @@ object ModpackExporter {
             game = "minecraft"
             versionId = "1.0.0"
             name = version.getVersionName()
-            summary = "Exported by TurtleLauncher"
+            summary = "Exported by AeroLauncher"
             files = indexFiles.toTypedArray()
             dependencies = buildMap {
                 put("minecraft", mcVersion)
@@ -158,7 +158,7 @@ object ModpackExporter {
     }
 
     /** Zips every file under [sourceDir] recursively, with entry paths rooted at [entryPrefix].
-     *  Skips anything ending in ".disabled" (TurtleLauncher's mod-disable convention, see
+     *  Skips anything ending in ".disabled" (AeroLauncher's mod-disable convention, see
      *  ModUtils.DISABLE_JAR_FILE_SUFFIX) - a file the player explicitly turned off has no
      *  business being bundled into an export. */
     private fun addDirectoryToZip(zos: ZipOutputStream, sourceDir: File, entryPrefix: String) {

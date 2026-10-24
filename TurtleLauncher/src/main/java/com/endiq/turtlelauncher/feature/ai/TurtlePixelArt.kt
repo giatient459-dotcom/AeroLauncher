@@ -6,7 +6,7 @@ import java.io.ByteArrayOutputStream
 import java.util.Random
 
 /**
- * Turtle's built-in image generator. Fully on-device and offline: no Gemini, no web, no key.
+ * AeroLauncher's built-in image generator. Fully on-device and offline: no Gemini, no web, no key.
  *
  * It is a procedural Minecraft-style pixel-art renderer, not a diffusion model: the prompt is
  * read for a time of day (sunset, night, ...), a biome (snow, desert, nether, ocean, ...) and

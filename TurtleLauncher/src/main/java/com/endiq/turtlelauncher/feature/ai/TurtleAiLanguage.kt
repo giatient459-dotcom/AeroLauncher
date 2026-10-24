@@ -5,7 +5,7 @@ import com.endiq.turtlelauncher.setting.AllSettings
 import java.util.Locale
 
 /**
- * Language handling for Turtle AI.
+ * Language handling for Aero AI.
  *
  * What this does, and what it deliberately does not:
  *
@@ -102,7 +102,7 @@ object TurtleAiLanguage {
     )
 
     private val ENGLISH_SHELL = Shell(
-        greeting = "Hi! I'm Turtle AI - the launcher's built-in assistant. Ask me about " +
+        greeting = "Hi! I'm Aero AI - the launcher's built-in assistant. Ask me about " +
             "renderers, crashes, memory, mods, Java or your device. I can also search the web " +
             "and answer in your language when that's enabled in Settings -> Experimental.",
         englishOnly = "(Offline answers are English only. Add an AI key in Settings -> " +
@@ -127,7 +127,7 @@ object TurtleAiLanguage {
     private val SHELL: Map<String, Shell> = mapOf(
         ENGLISH to ENGLISH_SHELL,
         "hi" to Shell(
-            greeting = "नमस्ते! मैं Turtle AI हूँ - इस लॉन्चर का बिल्ट-इन असिस्टेंट। रेंडरर, क्रैश, " +
+            greeting = "नमस्ते! मैं Aero AI हूँ - इस लॉन्चर का बिल्ट-इन असिस्टेंट। रेंडरर, क्रैश, " +
                 "RAM, मॉड्स, Java या अपने डिवाइस के बारे में पूछें। Settings -> Experimental में " +
                 "चालू होने पर मैं आपकी भाषा में जवाब देता हूँ और इंटरनेट भी खोज सकता हूँ।",
             englishOnly = "(ऑफ़लाइन जवाब केवल अंग्रेज़ी में हैं। अपनी भाषा में जवाब पाने के लिए " +
@@ -149,7 +149,7 @@ object TurtleAiLanguage {
                 "मैं उसे आवाज़ में नहीं बदल सका - स्पीच मॉडल ने मना किया या कोटा नहीं बचा।"
         ),
         "bn" to Shell(
-            greeting = "নমস্কার! আমি Turtle AI — এই লঞ্চারের বিল্ট-ইন সহকারী। রেন্ডারার, ক্র্যাশ, RAM, " +
+            greeting = "নমস্কার! আমি Aero AI — এই লঞ্চারের বিল্ট-ইন সহকারী। রেন্ডারার, ক্র্যাশ, RAM, " +
                 "মড, Java বা আপনার ডিভাইস সম্পর্কে জিজ্ঞাসা করুন। Settings -> Experimental-এ " +
                 "চালু থাকলে আমি আপনার ভাষায় উত্তর দিই এবং ইন্টারনেটেও খুঁজি।",
             englishOnly = "(অফলাইনে উত্তর শুধু ইংরেজিতে। নিজের ভাষায় উত্তর পেতে " +
@@ -171,7 +171,7 @@ object TurtleAiLanguage {
                 "আমি সেটিকে কথায় রূপ দিতে পারিনি - স্পিচ মডেল রাজি হয়নি বা কোটা নেই।"
         ),
         "ta" to Shell(
-            greeting = "வணக்கம்! நான் Turtle AI - இந்த லாஞ்சரின் உள்ளமைந்த உதவியாளர். ரெண்டரர்கள், " +
+            greeting = "வணக்கம்! நான் Aero AI - இந்த லாஞ்சரின் உள்ளமைந்த உதவியாளர். ரெண்டரர்கள், " +
                 "கிராஷ், RAM, மோட்கள், Java அல்லது உங்கள் சாதனம் பற்றி கேளுங்கள். " +
                 "Settings -> Experimental-இல் இயக்கினால் உங்கள் மொழியில் பதிலளிக்கிறேன்.",
             englishOnly = "(ஆஃப்லைனில் பதில்கள் ஆங்கிலத்தில் மட்டுமே. உங்கள் மொழியில் பதில் பெற " +
@@ -193,7 +193,7 @@ object TurtleAiLanguage {
                 "அதைப் பேச்சாக மாற்ற முடியவில்லை - பேச்சு மாடல் மறுத்தது அல்லது ஒதுக்கீடு இல்லை."
         ),
         "es" to Shell(
-            greeting = "¡Hola! Soy Turtle AI, el asistente integrado del launcher. Pregúntame por " +
+            greeting = "¡Hola! Soy Aero AI, el asistente integrado del launcher. Pregúntame por " +
                 "renderizadores, cierres, RAM, mods, Java o tu dispositivo. También puedo buscar en " +
                 "internet y responder en tu idioma si lo activas en Settings -> Experimental.",
             englishOnly = "(Las respuestas sin conexión solo están en inglés. Añade una clave de IA " +
@@ -215,7 +215,7 @@ object TurtleAiLanguage {
                 "No pude convertirlo en voz: el modelo de voz lo rechazó o no queda cuota."
         ),
         "pt" to Shell(
-            greeting = "Olá! Sou o Turtle AI, o assistente integrado do launcher. Pergunte sobre " +
+            greeting = "Olá! Sou o Aero AI, o assistente integrado do launcher. Pergunte sobre " +
                 "renderizadores, travamentos, RAM, mods, Java ou seu aparelho. Também posso " +
                 "pesquisar na internet e responder no seu idioma se isso estiver ativado em " +
                 "Settings -> Experimental.",
@@ -238,7 +238,7 @@ object TurtleAiLanguage {
                 "Não consegui transformar isso em fala - o modelo de voz recusou ou não há cota."
         ),
         "fr" to Shell(
-            greeting = "Salut ! Je suis Turtle AI, l'assistant intégré du launcher. Posez-moi des " +
+            greeting = "Salut ! Je suis Aero AI, l'assistant intégré du launcher. Posez-moi des " +
                 "questions sur les renderers, les crashs, la RAM, les mods, Java ou votre appareil. " +
                 "Je peux aussi chercher sur internet et répondre dans votre langue si c'est activé " +
                 "dans Settings -> Experimental.",
@@ -261,7 +261,7 @@ object TurtleAiLanguage {
                 "Je n'ai pas pu transformer cela en voix - le modèle a refusé ou il ne reste plus de quota."
         ),
         "de" to Shell(
-            greeting = "Hallo! Ich bin Turtle AI, der eingebaute Assistent des Launchers. Frag mich " +
+            greeting = "Hallo! Ich bin Aero AI, der eingebaute Assistent des Launchers. Frag mich " +
                 "zu Renderern, Abstürzen, RAM, Mods, Java oder deinem Gerät. Ich kann auch im " +
                 "Internet suchen und in deiner Sprache antworten, wenn du das in " +
                 "Settings -> Experimental aktivierst.",
@@ -284,7 +284,7 @@ object TurtleAiLanguage {
                 "Ich konnte das nicht in Sprache umwandeln - das Sprachmodell hat abgelehnt, oder das Kontingent ist leer."
         ),
         "it" to Shell(
-            greeting = "Ciao! Sono Turtle AI, l'assistente integrato del launcher. Chiedimi di " +
+            greeting = "Ciao! Sono Aero AI, l'assistente integrato del launcher. Chiedimi di " +
                 "renderer, crash, RAM, mod, Java o del tuo dispositivo. Posso anche cercare su " +
                 "internet e rispondere nella tua lingua se lo attivi in Settings -> Experimental.",
             englishOnly = "(Le risposte offline sono solo in inglese. Aggiungi una chiave AI in " +
@@ -306,7 +306,7 @@ object TurtleAiLanguage {
                 "Non ho potuto trasformarlo in voce - il modello ha rifiutato o non resta quota."
         ),
         "pl" to Shell(
-            greeting = "Cześć! Jestem Turtle AI, wbudowany asystent launchera. Pytaj o renderery, " +
+            greeting = "Cześć! Jestem Aero AI, wbudowany asystent launchera. Pytaj o renderery, " +
                 "crashe, RAM, mody, Java lub swoje urządzenie. Mogę też szukać w internecie i " +
                 "odpowiadać w Twoim języku, jeśli włączysz to w Settings -> Experimental.",
             englishOnly = "(Odpowiedzi offline są tylko po angielsku. Dodaj klucz AI w " +
@@ -328,7 +328,7 @@ object TurtleAiLanguage {
                 "Nie udało się zamienić tego na mowę - model odmówił lub nie ma kwoty."
         ),
         "ru" to Shell(
-            greeting = "Привет! Я Turtle AI — встроенный помощник лаунчера. Спроси про рендереры, " +
+            greeting = "Привет! Я Aero AI — встроенный помощник лаунчера. Спроси про рендереры, " +
                 "вылеты, RAM, моды, Java или своё устройство. Я также умею искать в интернете и " +
                 "отвечаю на твоём языке, если это включено в Settings -> Experimental.",
             englishOnly = "(Офлайн-ответы только на английском. Добавь ключ ИИ в " +
@@ -350,7 +350,7 @@ object TurtleAiLanguage {
                 "Не удалось озвучить - модель отказала или закончился лимит."
         ),
         "uk" to Shell(
-            greeting = "Привіт! Я Turtle AI — вбудований помічник лаунчера. Запитай про рендерери, " +
+            greeting = "Привіт! Я Aero AI — вбудований помічник лаунчера. Запитай про рендерери, " +
                 "вильоти, RAM, моди, Java або свій пристрій. Я також вмію шукати в інтернеті й " +
                 "відповідаю твоєю мовою, якщо це увімкнено в Settings -> Experimental.",
             englishOnly = "(Офлайн-відповіді лише англійською. Додай ключ ШІ в " +
@@ -372,7 +372,7 @@ object TurtleAiLanguage {
                 "Не вдалося озвучити - модель відмовила або закінчився ліміт."
         ),
         "tr" to Shell(
-            greeting = "Merhaba! Ben Turtle AI, başlatıcının dahili asistanı. Renderer'lar, çökmeler, " +
+            greeting = "Merhaba! Ben Aero AI, başlatıcının dahili asistanı. Renderer'lar, çökmeler, " +
                 "RAM, modlar, Java veya cihazın hakkında sorabilirsin. Settings -> Experimental'da " +
                 "açarsan internette arayabilir ve kendi dilinde yanıtlayabilirim.",
             englishOnly = "(Çevrimdışı yanıtlar yalnızca İngilizcedir. Kendi dilinde yanıt için " +
@@ -394,7 +394,7 @@ object TurtleAiLanguage {
                 "Bunu sese çeviremedim - ses modeli reddetti ya da kota kalmadı."
         ),
         "ar" to Shell(
-            greeting = "مرحبًا! أنا Turtle AI، المساعد المدمج في اللانشر. اسألني عن المُصيّرات " +
+            greeting = "مرحبًا! أنا Aero AI، المساعد المدمج في اللانشر. اسألني عن المُصيّرات " +
                 "(renderers)، الأعطال، الذاكرة، المودات، Java أو جهازك. أستطيع أيضًا البحث في " +
                 "الإنترنت والرد بلغتك عند تفعيل ذلك في Settings -> Experimental.",
             englishOnly = "(الأجوبة دون اتصال بالإنجليزية فقط. أضف مفتاح AI في " +
@@ -416,7 +416,7 @@ object TurtleAiLanguage {
                 "لم أتمكن من تحويل ذلك إلى صوت - رفض النموذج أو لا توجد حصة."
         ),
         "fa" to Shell(
-            greeting = "سلام! من Turtle AI هستم، دستیار داخلی لانچر. درباره رندررها، کرش، رم، مادها، " +
+            greeting = "سلام! من Aero AI هستم، دستیار داخلی لانچر. درباره رندررها، کرش، رم، مادها، " +
                 "Java یا دستگاهت بپرس. اگر در Settings -> Experimental فعال کنی، در اینترنت هم " +
                 "جستوجو میکنم و به زبان خودت پاسخ میدهم.",
             englishOnly = "(پاسخهای آفلاین فقط انگلیسی است. برای پاسخ به زبان خودت کلید AI را در " +
@@ -438,7 +438,7 @@ object TurtleAiLanguage {
                 "نتوانستم آن را به صدا تبدیل کنم - مدل رد کرد یا سهمیه‌ای نمانده."
         ),
         "he" to Shell(
-            greeting = "היי! אני Turtle AI, העוזר המובנה של הלאנצ'ר. שאל אותי על רנדררים, קריסות, " +
+            greeting = "היי! אני Aero AI, העוזר המובנה של הלאנצ'ר. שאל אותי על רנדררים, קריסות, " +
                 "RAM, מודים, Java או המכשיר שלך. אני יכול גם לחפש באינטרנט ולענות בשפה שלך אם זה " +
                 "מופעל ב-Settings -> Experimental.",
             englishOnly = "(תשובות לא מקוונות הן באנגלית בלבד. הוסף מפתח AI ב-Settings -> " +
@@ -460,7 +460,7 @@ object TurtleAiLanguage {
                 "לא הצלחתי להפוך את זה לדיבור - המודל סירב או שאין מכסה."
         ),
         "zh" to Shell(
-            greeting = "你好！我是 Turtle AI，启动器内置的助手。可以问我渲染器、崩溃、内存、模组、" +
+            greeting = "你好！我是 Aero AI，启动器内置的助手。可以问我渲染器、崩溃、内存、模组、" +
                 "Java 或你的设备。在 Settings -> Experimental 中开启后，我还能联网搜索并用你的语言回答。",
             englishOnly = "（离线回答只有英文。在 Settings -> Experimental 中填入 AI 密钥即可用你的语言回答。）",
             unknown = "离线状态下我无法回答“%s”。",
@@ -479,7 +479,7 @@ object TurtleAiLanguage {
                 "我无法把它转成语音——语音模型拒绝了，或者没有额度了。"
         ),
         "ja" to Shell(
-            greeting = "こんにちは！Turtle AI です。ランチャー内蔵のアシスタントで、レンダラー、" +
+            greeting = "こんにちは！Aero AI です。ランチャー内蔵のアシスタントで、レンダラー、" +
                 "クラッシュ、RAM、Mod、Java、端末について聞けます。Settings -> Experimental で有効にすると、" +
                 "Web 検索とあなたの言語での回答もできます。",
             englishOnly = "（オフラインの回答は英語のみです。Settings -> Experimental で AI キーを設定すると、" +
@@ -501,7 +501,7 @@ object TurtleAiLanguage {
                 "それを音声にできませんでした - 拒否されたか、クォータがありません。"
         ),
         "ko" to Shell(
-            greeting = "안녕하세요! 런처에 내장된 Turtle AI입니다. 렌더러, 크래시, RAM, 모드, Java, " +
+            greeting = "안녕하세요! 런처에 내장된 Aero AI입니다. 렌더러, 크래시, RAM, 모드, Java, " +
                 "기기 설정을 물어보세요. Settings -> Experimental에서 켜면 웹 검색과 한국어 답변도 가능합니다.",
             englishOnly = "(오프라인 답변은 영어만 지원합니다. Settings -> Experimental에서 AI 키를 넣으면 " +
                 "한국어로 답합니다.)",
@@ -522,7 +522,7 @@ object TurtleAiLanguage {
                 "그것을 음성으로 바꾸지 못했습니다 - 모델이 거부했거나 할당량이 없습니다."
         ),
         "id" to Shell(
-            greeting = "Hai! Saya Turtle AI, asisten bawaan launcher ini. Tanyakan soal renderer, " +
+            greeting = "Hai! Saya Aero AI, asisten bawaan launcher ini. Tanyakan soal renderer, " +
                 "crash, RAM, mod, Java, atau perangkatmu. Saya juga bisa mencari di internet dan " +
                 "menjawab dalam bahasamu jika diaktifkan di Settings -> Experimental.",
             englishOnly = "(Jawaban offline hanya dalam bahasa Inggris. Tambahkan kunci AI di " +
@@ -544,7 +544,7 @@ object TurtleAiLanguage {
                 "Gagal mengubahnya menjadi suara - model menolak atau kuota habis."
         ),
         "vi" to Shell(
-            greeting = "Xin chào! Tôi là Turtle AI, trợ lý có sẵn trong launcher. Hỏi tôi về renderer, " +
+            greeting = "Xin chào! Tôi là Aero AI, trợ lý có sẵn trong launcher. Hỏi tôi về renderer, " +
                 "lỗi crash, RAM, mod, Java hoặc thiết bị của bạn. Tôi cũng có thể tìm trên internet " +
                 "và trả lời bằng ngôn ngữ của bạn nếu bật trong Settings -> Experimental.",
             englishOnly = "(Câu trả lời ngoại tuyến chỉ có tiếng Anh. Thêm khoá AI trong " +
@@ -566,7 +566,7 @@ object TurtleAiLanguage {
                 "Không chuyển được thành giọng nói - mô hình từ chối hoặc hết hạn mức."
         ),
         "th" to Shell(
-            greeting = "สวัสดี! ฉันคือ Turtle AI ผู้ช่วยที่มาพร้อมกับตัว launcer นี้ ถามเรื่อง " +
+            greeting = "สวัสดี! ฉันคือ Aero AI ผู้ช่วยที่มาพร้อมกับตัว launcer นี้ ถามเรื่อง " +
                 "renderer, การแครช, RAM, มอด, Java หรืออุปกรณ์ของคุณได้ ถ้าเปิดใน " +
                 "Settings -> Experimental ฉันค้นเว็บและตอบเป็นภาษาของคุณได้ด้วย",
             englishOnly = "(คำตอบแบบออฟไลน์มีแค่ภาษาอังกฤษเท่านั้น ใส่คีย์ AI ใน " +
@@ -697,7 +697,7 @@ object TurtleAiLanguage {
 
     /**
      * The language to *answer* in: the launcher language unless the user overrode it in
-     * Settings -> Experimental -> Turtle AI language.
+     * Settings -> Experimental -> Aero AI language.
      */
     @JvmStatic
     fun resolve(context: Context): String {

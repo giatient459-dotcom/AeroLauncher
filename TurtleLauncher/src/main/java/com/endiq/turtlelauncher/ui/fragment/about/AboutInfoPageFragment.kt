@@ -74,7 +74,7 @@ class AboutInfoPageFragment() : Fragment(R.layout.fragment_about_info_page) {
                 qqGroupButton.visibility = View.GONE
             }
 
-            discordButton.setOnClickListener { ZHTools.openLink(requireActivity(), "https://discord.gg/8TfuMhM8tD") }
+            discordButton.setOnClickListener { ZHTools.openLink(requireActivity(), UrlManager.URL_DISCORD) }
         }
     }
 
@@ -87,15 +87,17 @@ class AboutInfoPageFragment() : Fragment(R.layout.fragment_about_info_page) {
                 com.endiq.turtlelauncher.utils.ZHTools.customLogo(requireContext()),
                 "Endiq",
                 getString(R.string.about_current_developer),
-                AboutItemButtonBean(requireActivity(), getString(R.string.about_access_link), "https://github.com/Endiq-jar")
+                AboutItemButtonBean(requireActivity(), getString(R.string.about_access_link), UrlManager.URL_UPSTREAM_OWNER)
             )
         )
+        // Upstream project credit, kept for GPL attribution. The string *name* still says
+        // AeroLauncher; only the display text and the link target change.
         mAboutData.add(
             AboutItemBean(
                 com.endiq.turtlelauncher.utils.ZHTools.customLogo(requireContext()),
-                "Turtle Launcher",
+                getString(R.string.about_upstream_project),
                 getString(R.string.about_TurtleLauncher_desc),
-                AboutItemButtonBean(requireActivity(), "Github", UrlManager.URL_HOME)
+                AboutItemButtonBean(requireActivity(), "Github", UrlManager.URL_UPSTREAM)
             )
         )
         mAboutData.add(
@@ -106,7 +108,7 @@ class AboutInfoPageFragment() : Fragment(R.layout.fragment_about_info_page) {
                 AboutItemButtonBean(
                     requireActivity(),
                     getString(R.string.about_access_link),
-                    UrlManager.URL_HOME
+                    UrlManager.URL_UPSTREAM_OWNER
                 ),
                 R.drawable.image_about_developer
             )

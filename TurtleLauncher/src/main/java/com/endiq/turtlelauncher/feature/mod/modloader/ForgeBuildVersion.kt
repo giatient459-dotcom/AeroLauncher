@@ -1,5 +1,5 @@
 /*
- * Turtle Launcher 2
+ * AeroLauncher 2
  * Copyright (C) 2025 Endiq and contributors
  *
  * This program is free software: you can redistribute it and/or modify

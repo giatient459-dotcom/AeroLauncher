@@ -17,7 +17,7 @@ import java.io.FileInputStream
 import java.util.zip.ZipFile
 
 /**
- * FCL and TurtleLauncher renderer plugins, including local renderer plugins.
+ * FCL and AeroLauncher renderer plugins, including local renderer plugins.
  * [FCL Renderer Plugin](https://github.com/FCL-Team/FCLRendererPlugin)
  */
 object RendererPluginManager {
@@ -89,7 +89,7 @@ object RendererPluginManager {
     }
 
     /**
-     * Parse TurtleLauncher / FCL renderer plugins.
+     * Parse AeroLauncher / FCL renderer plugins.
      */
     fun parseApkPlugin(context: Context, info: ApplicationInfo) {
         if (info.flags and ApplicationInfo.FLAG_SYSTEM == 0) {

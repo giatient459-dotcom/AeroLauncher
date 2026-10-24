@@ -7,7 +7,7 @@ package com.endiq.turtlelauncher.feature.mod.models;
  * manifests, this carries no Mojang-format version.json and no list of mods to download -
  * a MultiMC export already has the actual .minecraft-equivalent content (mods/saves/
  * configs/resourcepacks/etc) sitting in the zip, so importing means: extract that content,
- * then hand the version+loader found here to TurtleLauncher's normal installer pipeline
+ * then hand the version+loader found here to AeroLauncher's normal installer pipeline
  * the same way every other modpack type in this package does.
  */
 public class MMCPackMeta {

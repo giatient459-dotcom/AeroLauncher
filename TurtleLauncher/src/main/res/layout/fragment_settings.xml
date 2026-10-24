@@ -1031,7 +1031,7 @@
                 android:orientation="vertical"
                 android:layout_marginBottom="@dimen/space_l">
 
-                <!-- TurtleLauncher Emotes card. Its own row with an invisible spacer so the
+                <!-- AeroLauncher Emotes card. Its own row with an invisible spacer so the
                      hub grid stays two-up; paired visually with the Experimental/About row. -->
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -9,7 +9,7 @@ import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
 
 /**
- * TurtleLauncher – File Manager Zip / Extract utilities.
+ * AeroLauncher – File Manager Zip / Extract utilities.
  *
  * All operations are synchronous and intended to be called from a
  * background task (Task.runTask { ... }).

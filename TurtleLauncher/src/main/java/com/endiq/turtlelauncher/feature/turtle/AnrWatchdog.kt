@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong
 import kotlin.concurrent.thread
 
 /**
- * TurtleLauncher v10: lightweight ANR detector. Minecraft on Android can enter a
+ * AeroLauncher v10: lightweight ANR detector. Minecraft on Android can enter a
  * "frozen but not crashed" state (GameWatchdog already catches this for log
  * stagnation), but the *launcher's own UI thread* can also hang independently —
  * e.g. inside a synchronous file operation on the main thread. This posts a

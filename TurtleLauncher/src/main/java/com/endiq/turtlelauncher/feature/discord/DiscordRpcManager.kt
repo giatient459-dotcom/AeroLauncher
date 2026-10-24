@@ -15,7 +15,13 @@ import java.util.concurrent.TimeUnit
  */
 object DiscordRpcManager {
 
-    /** Turtle Launcher's registered Discord application. A settings override can replace this. */
+    /**
+     * Discord application that owns the "playing" card. This is the upstream launcher's
+     * registered application and is a compatibility identifier, not branding: a Discord
+     * application id cannot be renamed from here, and switching it would make every
+     * presence start failing until a new application is registered and reviewed.
+     * A settings override (discordRpcApplicationId) can still replace it.
+     */
     private const val DEFAULT_APPLICATION_ID = 1560576927419338863L
 
     private const val MAX_TEXT_LEN = 128
@@ -149,8 +155,8 @@ object DiscordRpcManager {
         val version = session.version
         val since = session.startedAt
 
-        val name = renderText(AllSettings.discordRpcName.getValue(), version).ifEmpty { "Turtle Launcher" }
-        val details = if (version == null) "Browsing Turtle Launcher" else renderText(AllSettings.discordRpcDetails.getValue(), version)
+        val name = renderText(AllSettings.discordRpcName.getValue(), version).ifEmpty { "AeroLauncher" }
+        val details = if (version == null) "Browsing AeroLauncher" else renderText(AllSettings.discordRpcDetails.getValue(), version)
         val state = renderText(AllSettings.discordRpcState.getValue(), version)
         val activityType = AllSettings.discordRpcType.getValue().trim().toIntOrNull()?.takeIf { it in VALID_TYPES } ?: 0
         val startTimestampMs = if (AllSettings.discordRpcShowElapsed.getValue()) {
@@ -188,7 +194,7 @@ object DiscordRpcManager {
     private fun renderText(template: String, version: String?): String {
         val safeVersion = version?.ifBlank { "Minecraft" } ?: "Minecraft"
         return template.replace("{version}", safeVersion)
-            .replace("{activity}", if (version == null) "Browsing Turtle Launcher" else "Playing Minecraft")
+            .replace("{activity}", if (version == null) "Browsing AeroLauncher" else "Playing Minecraft")
             .trim()
     }
 }

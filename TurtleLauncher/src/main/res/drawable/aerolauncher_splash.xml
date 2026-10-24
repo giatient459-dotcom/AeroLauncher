@@ -1,0 +1,1 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item android:drawable="@color/background_app" /><item android:drawable="@drawable/aerolauncher_brand_mark" /></layer-list>

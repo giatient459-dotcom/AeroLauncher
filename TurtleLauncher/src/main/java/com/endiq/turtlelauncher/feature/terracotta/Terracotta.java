@@ -85,7 +85,7 @@ public class Terracotta {
     public static synchronized void initialize(Activity activity) {
         if (initialized) return;
 
-        // TurtleLauncher diagnostic marker (Sept 2026, Friends/LAN SIGABRT at open): the
+        // AeroLauncher diagnostic marker (Sept 2026, Friends/LAN SIGABRT at open): the
         // native library loads (and can abort the process) inside
         // TerracottaAndroidAPI.initialize() below, on THIS thread. One line naming the
         // entry path means the next native tombstone can be matched to its trigger from

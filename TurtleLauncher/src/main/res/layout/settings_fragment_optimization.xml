@@ -58,7 +58,7 @@
             android:paddingVertical="@dimen/_12sdp">
 
             <!-- ═══════════════════════════════════════════════════════════
-                 FPS BOOST CARD  (TurtleLauncher)
+                 FPS BOOST CARD  (AeroLauncher)
             ════════════════════════════════════════════════════════════════ -->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/fps_boost_category"

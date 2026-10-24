@@ -14,6 +14,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Turtle Launcher"
+rootProject.name = "AeroLauncher"
 include(":jre_lwjgl3glfw")
+// The module directory keeps its original name: CI workflows, the JNI/CMake
+// paths and the sdlhook build all reference TurtleLauncher/ on disk.
 include(":TurtleLauncher")

@@ -104,7 +104,7 @@
 
         </LinearLayout>
 
-        <!-- TurtleLauncher Control Switcher: taps through the control layouts in
+        <!-- AeroLauncher Control Switcher: taps through the control layouts in
              PathManager.DIR_CTRLMAP_PATH without opening the game menu. Shown only when
              AllSettings.controlSwitcherEnabled is on (MainActivity applies that), and it sits
              above the Touchpad (translationZ 2dp) but below the game-menu drawer (4dp) so

@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
- * The live voice conversation: you talk, Turtle AI talks back.
+ * The live voice conversation: you talk, Aero AI talks back.
  *
  * This is the Gemini **Live API**, which is not the request/response shape everything else in
  * [TurtleAiGemini] uses - it is one long-lived WebSocket that carries chunks of audio in both
@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  *
  * Nothing throws out of here. A refused microphone, a bad key, a dropped socket or an
  * unsupported model all end up in [Listener.onEnded] with a reason the UI can show. The caller
- * is expected to treat the session as best-effort, exactly like the rest of Turtle AI.
+ * is expected to treat the session as best-effort, exactly like the rest of Aero AI.
  */
 object TurtleAiVoice {
 
@@ -249,7 +249,7 @@ object TurtleAiVoice {
         }
 
         /**
-         * The spoken variant of the Turtle AI persona: the same identity and honesty rules,
+         * The spoken variant of the Aero AI persona: the same identity and honesty rules,
          * minus the parts that only make sense on a screen (markdown, code blocks, long
          * lists). Speech has no scrollback - a short answer that gets repeated is better than
          * a complete one that nobody can skim.

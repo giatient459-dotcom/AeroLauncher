@@ -7,7 +7,7 @@ import net.endiq.launcher.Tools
 import java.io.File
 
 /**
- * TurtleLauncher v10: settings backup/restore. The launcher already stores every
+ * AeroLauncher v10: settings backup/restore. The launcher already stores every
  * AllSettings.* value as one JSON array in [PathManager.FILE_SETTINGS], so backup
  * is just a validated copy of that file, and restore is writing a validated backup
  * back into place followed by [Settings.refreshSettings] so every already-loaded

@@ -202,7 +202,7 @@ class VideoSettingsFragment : AbstractSettingsFragment(R.layout.settings_fragmen
             changeResolutionRatioPreview(progress)
         }
 
-        // TurtleLauncher v10: quick resolution presets + auto-detect
+        // AeroLauncher v10: quick resolution presets + auto-detect
         fun applyResolutionPreset(percent: Int) {
             AllSettings.resolutionRatio.put(percent).save()
             binding.resolutionRatio.progress = percent
