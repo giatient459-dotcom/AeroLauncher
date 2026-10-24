@@ -7,10 +7,12 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 
 class ResourcePackInventoryTest {
-    private val temporaryFolder = TemporaryFolder().apply { create() }
+    @get:Rule
+    val temporaryFolder = TemporaryFolder()
 
     @Test
     fun validPackMcmetaIsListed() = runTest {
