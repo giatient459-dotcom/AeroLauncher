@@ -238,9 +238,10 @@ class LaunchArgs(
             if (isMinecraftVersionAtLeast(mcVersionId, 1, 17, 0)) return 17
             if (isMinecraftVersionAtLeast(mcVersionId, 1, 0, 0)) return 8
 
-            // Unrecognised/non-numeric version id (e.g. custom modpack labels)
-            // — fall back to whatever Mojang's JSON says rather than guessing.
-            return if (jsonMajorVersion > 0) jsonMajorVersion else 8
+            // Unrecognised/non-numeric version id (e.g. custom modpack labels).
+            // Use explicit version metadata when present; otherwise block launch rather than
+            // guessing Java 8 and failing later with UnsupportedClassVersionError.
+            return if (jsonMajorVersion > 0) jsonMajorVersion else 0
         }
 
         /**
