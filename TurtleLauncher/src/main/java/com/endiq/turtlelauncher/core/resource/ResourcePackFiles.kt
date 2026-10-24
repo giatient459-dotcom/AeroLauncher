@@ -31,7 +31,7 @@ internal object ResourcePackFiles {
             ZipFile(file).use { zip ->
                 zip.entries().asSequence().any { entry ->
                     !entry.isDirectory &&
-                        entry.name.replace('\\\\', '/').startsWith("shaders/") &&
+                        entry.name.replace('\\', '/').startsWith("shaders/") &&
                         (entry.name.endsWith(".fsh", true) ||
                             entry.name.endsWith(".vsh", true) ||
                             entry.name.endsWith(".glsl", true))
@@ -128,15 +128,15 @@ internal object ResourcePackFiles {
                 val c = source[index++]
                 when {
                     c == '"' -> return out.toString()
-                    c == '\\\\' -> {
+                    c == '\\' -> {
                         if (index >= source.length) error("Incomplete escape")
                         when (val escaped = source[index++]) {
-                            '"', '\\\\', '/' -> out.append(escaped)
-                            'b' -> out.append('\\b')
-                            'f' -> out.append('\\u000C')
-                            'n' -> out.append('\\n')
-                            'r' -> out.append('\\r')
-                            't' -> out.append('\\t')
+                            '"', '\\', '/' -> out.append(escaped)
+                            'b' -> out.append('\b')
+                            'f' -> out.append('\u000C')
+                            'n' -> out.append('\n')
+                            'r' -> out.append('\r')
+                            't' -> out.append('\t')
                             'u' -> {
                                 if (index + 4 > source.length) error("Incomplete unicode escape")
                                 val code = source.substring(index, index + 4).toIntOrNull(16)
@@ -181,7 +181,7 @@ internal object ResourcePackFiles {
         }
 
         private fun skipWhitespace() {
-            while (index < source.length && source[index] in charArrayOf(' ', '\\n', '\\r', '\\t')) index++
+            while (index < source.length && source[index] in charArrayOf(' ', '\n', '\r', '\t')) index++
         }
 
         private fun expect(char: Char) {
